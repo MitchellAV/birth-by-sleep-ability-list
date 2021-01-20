@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>Birth by Sleep Melding Visualization</title>
+</head>
+
+<body>
+	<header>
+		<%- include('../partials/navbar'); %>
+	</header>
+	<h1>Ability page</h1>
+	<div>
+		<%- include('../partials/searchbar'); %>
+	</div>
+	<div>
+		<%- include('../partials/table', {list: node.parents}) %>
+	</div>
+	<!-- Create a div where the graph will take place -->
+	<!-- Load d3.js -->
+	<script src="https://d3js.org/d3.v6.min.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="../../js/getChart.js"></script>
+	<script>
+
+		const data = JSON.parse('<%- JSON.stringify(data) %>');
+		const node = JSON.parse('<%- JSON.stringify(node) %>');
+		console.log(data, node);
+		const width = window.innerWidth;
+		const height = window.innerHeight * 1.5;
+		generateD3Chart(data, width, height);
+	</script>
+</body>
+
+</html>

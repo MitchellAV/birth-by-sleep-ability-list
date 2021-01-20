@@ -1,0 +1,1084 @@
+{
+	"header": {
+		"b": "Command",
+		"a1": "1st Ingredient",
+		"a2": "2nd Ingredient",
+		"type": "Type",
+		"chars": "Used By",
+		"chance": "%"
+	},
+	"recipes": [
+		{
+			"b": "Fira",
+			"a1": "Fire Dash",
+			"a2": "Fire",
+			"type": "D",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Fira",
+			"a1": "Fire Strike",
+			"a2": "Fire",
+			"type": "D",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Fira",
+			"a1": "Fire",
+			"a2": "Fire",
+			"type": "A",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Fira",
+			"a1": "Fire",
+			"a2": "Ignite",
+			"type": "C",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Firaga",
+			"a1": "Fire Dash",
+			"a2": "Fira",
+			"type": "D",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Firaga",
+			"a1": "Fire",
+			"a2": "Fira",
+			"type": "A",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Firaga",
+			"a1": "Fira",
+			"a2": "Fira",
+			"type": "B",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Dark Firaga",
+			"a1": "Dark Haze",
+			"a2": "Firaga",
+			"type": "D",
+			"chars": ["terra"],
+			"chance": "100"
+		},
+		{
+			"b": "Dark Firaga",
+			"a1": "Firaga",
+			"a2": "Blackout",
+			"type": "B",
+			"chars": ["terra"],
+			"chance": "100"
+		},
+		{
+			"b": "Fission Firaga",
+			"a1": "Fira",
+			"a2": "Aeroga",
+			"type": "A",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "80"
+		},
+		{
+			"b": "Fission Firaga",
+			"a1": "Firaga",
+			"a2": "Aerora",
+			"type": "A",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "80"
+		},
+		{
+			"b": "Fission Firaga",
+			"a1": "Firaga",
+			"a2": "Aeroga",
+			"type": "B",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "80"
+		},
+		{
+			"b": "Triple Firaga",
+			"a1": "Fira",
+			"a2": "Firaga",
+			"type": "A",
+			"chars": ["aqua"],
+			"chance": "95"
+		},
+		{
+			"b": "Triple Firaga",
+			"a1": "Blitz",
+			"a2": "Firaga",
+			"type": "D",
+			"chars": ["aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Triple Firaga",
+			"a1": "Firaga",
+			"a2": "Firaga",
+			"type": "B",
+			"chars": ["aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Crawling Fire",
+			"a1": "Firaga",
+			"a2": "Slow",
+			"type": "A",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "80"
+		},
+		{
+			"b": "Crawling Fire",
+			"a1": "Firaga",
+			"a2": "Stopra",
+			"type": "D",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "80"
+		},
+		{
+			"b": "Crawling Fire",
+			"a1": "Firaga",
+			"a2": "Stopga",
+			"type": "B",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "80"
+		},
+		{
+			"b": "Blizzara",
+			"a1": "Strike Raid",
+			"a2": "Blizzard",
+			"type": "G",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Blizzara",
+			"a1": "Blizzard Edge",
+			"a2": "Blizzard",
+			"type": "G",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Blizzara",
+			"a1": "Blizzard",
+			"a2": "Blizzard",
+			"type": "E",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Blizzara",
+			"a1": "Blizzard",
+			"a2": "Aero",
+			"type": "H",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Blizzaga",
+			"a1": "Blizzard Edge",
+			"a2": "Blizzara",
+			"type": "G",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Blizzaga",
+			"a1": "Blizzard",
+			"a2": "Blizzara",
+			"type": "E",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Blizzaga",
+			"a1": "Blizzara",
+			"a2": "Blizzara",
+			"type": "F",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Triple Blizzaga",
+			"a1": "Blitz",
+			"a2": "Blizzaga",
+			"type": "G",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Triple Blizzaga",
+			"a1": "Blizzara",
+			"a2": "Blizzaga",
+			"type": "E",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Triple Blizzaga",
+			"a1": "Blizzaga",
+			"a2": "Blizzaga",
+			"type": "F",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Thundara",
+			"a1": "Stun Edge",
+			"a2": "Thunder",
+			"type": "K",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Thundara",
+			"a1": "Thunder",
+			"a2": "Thunder",
+			"type": "I",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Thundara",
+			"a1": "Zero Gravity",
+			"a2": "Magnet",
+			"type": "L",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Thundaga",
+			"a1": "Binding Strike",
+			"a2": "Thundara",
+			"type": "K",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Thundaga",
+			"a1": "Thunder",
+			"a2": "Thundara",
+			"type": "I",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Thundaga",
+			"a1": "Thundara",
+			"a2": "Thundara",
+			"type": "J",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Thundaga Shot",
+			"a1": "Strike Raid",
+			"a2": "Thundaga",
+			"type": "I",
+			"chars": ["aqua"],
+			"chance": "85"
+		},
+		{
+			"b": "Thundaga Shot",
+			"a1": "Freeze Raid",
+			"a2": "Thundaga",
+			"type": "E",
+			"chars": ["aqua"],
+			"chance": "85"
+		},
+		{
+			"b": "Thundaga Shot",
+			"a1": "Firaga",
+			"a2": "Thundaga",
+			"type": "A",
+			"chars": ["aqua"],
+			"chance": "85"
+		},
+		{
+			"b": "Cura",
+			"a1": "Thunder",
+			"a2": "Cure",
+			"type": "I",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Cura",
+			"a1": "Cure",
+			"a2": "Cure",
+			"type": "M",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Cura",
+			"a1": "Cure",
+			"a2": "Aero",
+			"type": "O",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Curaga",
+			"a1": "Cure",
+			"a2": "Cura",
+			"type": "M",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Curaga",
+			"a1": "Cura",
+			"a2": "Cura",
+			"type": "N",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Mine Shield",
+			"a1": "Fira",
+			"a2": "Zero Gravity",
+			"type": "A",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Mine Shield",
+			"a1": "Fira",
+			"a2": "Block",
+			"type": "C",
+			"chars": ["terra", "ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Mine Shield",
+			"a1": "Ignite",
+			"a2": "Stop",
+			"type": "D",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Mine Shield",
+			"a1": "Stopra",
+			"a2": "Block",
+			"type": "M",
+			"chars": ["terra", "ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Mine Square",
+			"a1": "Fira",
+			"a2": "Stop",
+			"type": "A",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Mine Square",
+			"a1": "Fira",
+			"a2": "Barrier",
+			"type": "C",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Mine Square",
+			"a1": "Aerora",
+			"a2": "Ignite",
+			"type": "D",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Mine Square",
+			"a1": "Stopra",
+			"a2": "Barrier",
+			"type": "M",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Seeker Mine",
+			"a1": "Mine Shield",
+			"a2": "Mine Square",
+			"type": "B",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Seeker Mine",
+			"a1": "Mine Shield",
+			"a2": "Magnega",
+			"type": "C",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Seeker Mine",
+			"a1": "Mine Square",
+			"a2": "Magnega",
+			"type": "D",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Zero Gravira",
+			"a1": "Thunder",
+			"a2": "Zero Gravity",
+			"type": "I",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Zero Gravira",
+			"a1": "Zero Gravity",
+			"a2": "Zero Gravity",
+			"type": "M",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Zero Gravira",
+			"a1": "Magnet",
+			"a2": "Aero",
+			"type": "P",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Zero Graviga",
+			"a1": "Thundara",
+			"a2": "Zero Gravira",
+			"type": "I",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "80"
+		},
+		{
+			"b": "Zero Graviga",
+			"a1": "Zero Gravity",
+			"a2": "Zero Gravira",
+			"type": "M",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "80"
+		},
+		{
+			"b": "Zero Graviga",
+			"a1": "Zero Gravira",
+			"a2": "Zero Gravira",
+			"type": "N",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "80"
+		},
+		{
+			"b": "Magnera",
+			"a1": "Stun Edge",
+			"a2": "Magnet",
+			"type": "K",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Magnera",
+			"a1": "Thunder",
+			"a2": "Magnet",
+			"type": "I",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Magnera",
+			"a1": "Magnet",
+			"a2": "Magnet",
+			"type": "M",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Magnega",
+			"a1": "Magnet",
+			"a2": "Magnera",
+			"type": "I",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Magnega",
+			"a1": "Magnera",
+			"a2": "Magnera",
+			"type": "J",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Munny Magnet",
+			"a1": "Wishing Edge",
+			"a2": "Magnera",
+			"type": "K",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Munny Magnet",
+			"a1": "Thundara",
+			"a2": "Magnera",
+			"type": "I",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Energy Magnet",
+			"a1": "Cure",
+			"a2": "Magnera",
+			"type": "M",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Energy Magnet",
+			"a1": "Cura",
+			"a2": "Magnera",
+			"type": "N",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "D-Link Magnet",
+			"a1": "Zero Gravira",
+			"a2": "Magnera",
+			"type": "L",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "D-Link Magnet",
+			"a1": "Magnera",
+			"a2": "Stopra",
+			"type": "I",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Aerora",
+			"a1": "Quick Blitz",
+			"a2": "Aero",
+			"type": "G",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "95"
+		},
+		{
+			"b": "Aerora",
+			"a1": "Thunder",
+			"a2": "Aero",
+			"type": "I",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "95"
+		},
+		{
+			"b": "Aerora",
+			"a1": "Aero",
+			"a2": "Aero",
+			"type": "E",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "95"
+		},
+		{
+			"b": "Aeroga",
+			"a1": "Quick Blitz",
+			"a2": "Aerora",
+			"type": "O",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Aeroga",
+			"a1": "Aero",
+			"a2": "Aerora",
+			"type": "M",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Aeroga",
+			"a1": "Aerora",
+			"a2": "Aerora",
+			"type": "N",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Warp",
+			"a1": "Thundara",
+			"a2": "Zero Gravira",
+			"type": "I",
+			"chars": ["terra"],
+			"chance": "20"
+		},
+		{
+			"b": "Warp",
+			"a1": "Zero Gravity",
+			"a2": "Zero Gravira",
+			"type": "M",
+			"chars": ["terra"],
+			"chance": "20"
+		},
+		{
+			"b": "Warp",
+			"a1": "Zero Gravira",
+			"a2": "Zero Gravira",
+			"type": "N",
+			"chars": ["terra"],
+			"chance": "20"
+		},
+		{
+			"b": "Warp",
+			"a1": "Thunder",
+			"a2": "Zero Gravity",
+			"type": "I",
+			"chars": ["terra"],
+			"chance": "10"
+		},
+		{
+			"b": "Warp",
+			"a1": "Magnet",
+			"a2": "Aero",
+			"type": "P",
+			"chars": ["terra"],
+			"chance": "10"
+		},
+		{
+			"b": "Warp",
+			"a1": "Zero Gravity",
+			"a2": "Zero Gravity",
+			"type": "M",
+			"chars": ["terra"],
+			"chance": "10"
+		},
+		{
+			"b": "Faith",
+			"a1": "Wind Raid",
+			"a2": "Break Time",
+			"type": "N",
+			"chars": ["ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Deep Freeze",
+			"a1": "Freeze Raid",
+			"a2": "Blizzaga",
+			"type": "G",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Deep Freeze",
+			"a1": "Binding Strike",
+			"a2": "Blizzaga",
+			"type": "H",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Deep Freeze",
+			"a1": "Blizzaga",
+			"a2": "Triple Blizzaga",
+			"type": "F",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Glacier",
+			"a1": "Blizzaga",
+			"a2": "Deep Freeze",
+			"type": "E",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Glacier",
+			"a1": "Triple Blizzaga",
+			"a2": "Deep Freeze",
+			"type": "F",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Ice Barrage",
+			"a1": "Blizzaga",
+			"a2": "Mine Shield",
+			"type": "F",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Ice Barrage",
+			"a1": "Blizzaga",
+			"a2": "Mine Square",
+			"type": "H",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Firaga Burst",
+			"a1": "Fira",
+			"a2": "Aeroga",
+			"type": "A",
+			"chars": ["aqua"],
+			"chance": "20"
+		},
+		{
+			"b": "Firaga Burst",
+			"a1": "Firaga",
+			"a2": "Aerora",
+			"type": "A",
+			"chars": ["aqua"],
+			"chance": "20"
+		},
+		{
+			"b": "Firaga Burst",
+			"a1": "Firaga",
+			"a2": "Aeroga",
+			"type": "B",
+			"chars": ["aqua"],
+			"chance": "20"
+		},
+		{
+			"b": "Firaga Burst",
+			"a1": "Firaga",
+			"a2": "Slow",
+			"type": "A",
+			"chars": ["aqua"],
+			"chance": "20"
+		},
+		{
+			"b": "Firaga Burst",
+			"a1": "Firaga",
+			"a2": "Stopra",
+			"type": "D",
+			"chars": ["aqua"],
+			"chance": "20"
+		},
+		{
+			"b": "Firaga Burst",
+			"a1": "Firaga",
+			"a2": "Stopga",
+			"type": "B",
+			"chars": ["aqua"],
+			"chance": "20"
+		},
+		{
+			"b": "Raging Storm",
+			"a1": "Fission Firaga",
+			"a2": "Firaga Burst",
+			"type": "B",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Raging Storm",
+			"a1": "Blitz",
+			"a2": "Firaga",
+			"type": "D",
+			"chars": ["aqua"],
+			"chance": "10"
+		},
+		{
+			"b": "Raging Storm",
+			"a1": "Fire Dash",
+			"a2": "Fira",
+			"type": "D",
+			"chars": ["aqua"],
+			"chance": "10"
+		},
+		{
+			"b": "Raging Storm",
+			"a1": "Fire Surge",
+			"a2": "Cartwheel",
+			"type": "C",
+			"chars": ["aqua"],
+			"chance": "10"
+		},
+		{
+			"b": "Raging Storm",
+			"a1": "Fire",
+			"a2": "Fira",
+			"type": "A",
+			"chars": ["aqua"],
+			"chance": "10"
+		},
+		{
+			"b": "Raging Storm",
+			"a1": "Fira",
+			"a2": "Fira",
+			"type": "B",
+			"chars": ["aqua"],
+			"chance": "10"
+		},
+		{
+			"b": "Raging Storm",
+			"a1": "Fira",
+			"a2": "Firaga",
+			"type": "A",
+			"chars": ["aqua"],
+			"chance": "10"
+		},
+		{
+			"b": "Raging Storm",
+			"a1": "Firaga",
+			"a2": "Firaga",
+			"type": "B",
+			"chars": ["aqua"],
+			"chance": "10"
+		},
+		{
+			"b": "Mega Flare",
+			"a1": "Fission Firaga",
+			"a2": "Crawling Fire",
+			"type": "B",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Quake",
+			"a1": "Brutal Blast",
+			"a2": "Zero Graviga",
+			"type": "B",
+			"chars": ["terra"],
+			"chance": "90"
+		},
+		{
+			"b": "Quake",
+			"a1": "Brutal Blast",
+			"a2": "Magnega",
+			"type": "C",
+			"chars": ["terra"],
+			"chance": "90"
+		},
+		{
+			"b": "Quake",
+			"a1": "Stun Edge",
+			"a2": "Mine Shield",
+			"type": "O",
+			"chars": ["terra"],
+			"chance": "30"
+		},
+		{
+			"b": "Quake",
+			"a1": "Binding Strike",
+			"a2": "Mine Square",
+			"type": "L",
+			"chars": ["terra"],
+			"chance": "30"
+		},
+		{
+			"b": "Quake",
+			"a1": "Brutal Blast",
+			"a2": "Brutal Blast",
+			"type": "N",
+			"chars": ["terra"],
+			"chance": "30"
+		},
+		{
+			"b": "Meteor",
+			"a1": "Geo Impact",
+			"a2": "Quake",
+			"type": "B",
+			"chars": ["terra"],
+			"chance": "100"
+		},
+		{
+			"b": "Meteor",
+			"a1": "Brutal Blast",
+			"a2": "Zero Graviga",
+			"type": "B",
+			"chars": ["terra"],
+			"chance": "10"
+		},
+		{
+			"b": "Meteor",
+			"a1": "Brutal Blast",
+			"a2": "Magnega",
+			"type": "C",
+			"chars": ["terra"],
+			"chance": "10"
+		},
+		{
+			"b": "Tornado",
+			"a1": "Magnega",
+			"a2": "Aeroga",
+			"type": "N",
+			"chars": ["ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Tornado",
+			"a1": "Quick Blitz",
+			"a2": "Aerora",
+			"type": "O",
+			"chars": ["ventus"],
+			"chance": "10"
+		},
+		{
+			"b": "Tornado",
+			"a1": "Aero",
+			"a2": "Aerora",
+			"type": "M",
+			"chars": ["ventus"],
+			"chance": "10"
+		},
+		{
+			"b": "Tornado",
+			"a1": "Aerora",
+			"a2": "Aerora",
+			"type": "N",
+			"chars": ["ventus"],
+			"chance": "10"
+		},
+		{
+			"b": "Tornado",
+			"a1": "Quick Blitz",
+			"a2": "Aero",
+			"type": "G",
+			"chars": ["ventus"],
+			"chance": "5"
+		},
+		{
+			"b": "Tornado",
+			"a1": "Thunder",
+			"a2": "Aero",
+			"type": "I",
+			"chars": ["ventus"],
+			"chance": "5"
+		},
+		{
+			"b": "Tornado",
+			"a1": "Aero",
+			"a2": "Aero",
+			"type": "E",
+			"chars": ["ventus"],
+			"chance": "5"
+		},
+		{
+			"b": "Transcendence",
+			"a1": "Magnet Spiral",
+			"a2": "Zero Graviga",
+			"type": "J",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Mini",
+			"a1": "Magnera",
+			"a2": "Warp",
+			"type": "N",
+			"chars": ["terra"],
+			"chance": "100"
+		},
+		{
+			"b": "Mini",
+			"a1": "Magnega",
+			"a2": "Magnega",
+			"type": "J",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Mini",
+			"a1": "Magnega",
+			"a2": "Bind",
+			"type": "I",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Blackout",
+			"a1": "Zero Gravity",
+			"a2": "Confuse",
+			"type": "M",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Blackout",
+			"a1": "Zero Gravira",
+			"a2": "Confuse",
+			"type": "N",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Blackout",
+			"a1": "Zero Gravira",
+			"a2": "Poison",
+			"type": "P",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Ignite",
+			"a1": "Fire",
+			"a2": "Bind",
+			"type": "A",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Ignite",
+			"a1": "Fira",
+			"a2": "Bind",
+			"type": "C",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Stopra",
+			"a1": "Slow",
+			"a2": "Slow",
+			"type": "L",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Stopra",
+			"a1": "Slow",
+			"a2": "Stop",
+			"type": "K",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Stopra",
+			"a1": "Stop",
+			"a2": "Stop",
+			"type": "I",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Stopga",
+			"a1": "Stop",
+			"a2": "Stopra",
+			"type": "I",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Stopga",
+			"a1": "Stopra",
+			"a2": "Stopra",
+			"type": "J",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		}
+	]
+}

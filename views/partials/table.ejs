@@ -1,0 +1,23 @@
+<table>
+	<tr>
+		<th>Product</th>
+		<th>First</th>
+		<th>Second</th>
+		<th>Crystal</th>
+	</tr>
+	<% list.forEach(recipe=>{ %> <tr>
+			<td>
+				<a href=<%=`/ability/terra/${recipe.url}` %>><%=recipe.product %></a>
+			</td>
+			<td>
+				<%= recipe.firstIng %>
+			</td>
+			<td>
+				<%= recipe.secondIng %>
+			</td>
+			<td>
+				<%= recipe.crystalOutcome %>
+			</td>
+		</tr>
+		<%}); %>
+</table>

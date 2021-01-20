@@ -1,0 +1,140 @@
+{
+	"header": {
+		"b": "Command",
+		"a1": "1st Ingredient",
+		"a2": "2nd Ingredient",
+		"type": "Type",
+		"chars": "Used By",
+		"chance": "%"
+	},
+	"recipes": [
+		{
+			"b": "Lightning Ray",
+			"a1": "Blitz",
+			"a2": "Dark Haze",
+			"type": "-",
+			"chars": ["terra"],
+			"chance": "10"
+		},
+		{
+			"b": "Lightning Ray",
+			"a1": "Blitz",
+			"a2": "Air Slide",
+			"type": "-",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "10"
+		},
+		{
+			"b": "Lightning Ray",
+			"a1": "Fire Dash",
+			"a2": "Thunder Surge",
+			"type": "-",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "10"
+		},
+		{
+			"b": "Lightning Ray",
+			"a1": "Binding Strike",
+			"a2": "Thundara",
+			"type": "-",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "10"
+		},
+		{
+			"b": "Lightning Ray",
+			"a1": "Thunder",
+			"a2": "Thundara",
+			"type": "-",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "10"
+		},
+		{
+			"b": "Lightning Ray",
+			"a1": "Thundara",
+			"a2": "Thundara",
+			"type": "-",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "10"
+		},
+		{
+			"b": "Lightning Ray",
+			"a1": "Aeroga",
+			"a2": "Barrier Surge",
+			"type": "-",
+			"chars": ["aqua"],
+			"chance": "10"
+		},
+		{
+			"b": "Meteor Shower",
+			"a1": "Strike Raid",
+			"a2": "Thundaga",
+			"type": "-",
+			"chars": ["aqua"],
+			"chance": "15"
+		},
+		{
+			"b": "Meteor Shower",
+			"a1": "Freeze Raid",
+			"a2": "Thundaga",
+			"type": "-",
+			"chars": ["aqua"],
+			"chance": "15"
+		},
+		{
+			"b": "Meteor Shower",
+			"a1": "Firaga",
+			"a2": "Thundaga",
+			"type": "-",
+			"chars": ["aqua"],
+			"chance": "15"
+		},
+		{
+			"b": "Meteor Shower",
+			"a1": "Blitz",
+			"a2": "Zero Graviga",
+			"type": "-",
+			"chars": ["aqua"],
+			"chance": "10"
+		},
+		{
+			"b": "Bio Barrage",
+			"a1": "Poison Edge",
+			"a2": "Block",
+			"type": "-",
+			"chars": ["terra", "ventus"],
+			"chance": "20"
+		},
+		{
+			"b": "Bio Barrage",
+			"a1": "Poison",
+			"a2": "Block",
+			"type": "-",
+			"chars": ["terra", "ventus"],
+			"chance": "20"
+		},
+		{
+			"b": "Bio Barrage",
+			"a1": "Quick Blitz",
+			"a2": "Poison",
+			"type": "-",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "5"
+		},
+		{
+			"b": "Bio Barrage",
+			"a1": "Sliding Dash",
+			"a2": "Poison",
+			"type": "-",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "5"
+		},
+		{
+			"b": "Bio Barrage",
+			"a1": "Strike Raid",
+			"a2": "Poison",
+			"type": "-",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "5"
+		}
+	]
+}

@@ -1,0 +1,956 @@
+{
+	"header": {
+		"b": "Command",
+		"a1": "1st Ingredient",
+		"a2": "2nd Ingredient",
+		"type": "Type",
+		"chars": "Used By",
+		"chance": "%"
+	},
+	"recipes": [
+		{
+			"b": "Blitz",
+			"a1": "Quick Blitz",
+			"a2": "Slot Edge",
+			"type": "O",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Blitz",
+			"a1": "Barrier Surge",
+			"a2": "Wishing Edge",
+			"type": "P",
+			"chars": ["aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Blitz",
+			"a1": "Stun Edge",
+			"a2": "Slot Edge",
+			"type": "K",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Meteor Crash",
+			"a1": "Blitz",
+			"a2": "Quake",
+			"type": "N",
+			"chars": ["terra"],
+			"chance": "100"
+		},
+		{
+			"b": "Meteor Crash",
+			"a1": "Fire Strike",
+			"a2": "Brutal Blast",
+			"type": "D",
+			"chars": ["terra"],
+			"chance": "100"
+		},
+		{
+			"b": "Magic Hour",
+			"a1": "Blitz",
+			"a2": "Zero Graviga",
+			"type": "O",
+			"chars": ["aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Magic Hour",
+			"a1": "Barrier Surge",
+			"a2": "Aeroga",
+			"type": "N",
+			"chars": ["aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Fire Dash",
+			"a1": "Sliding Dash",
+			"a2": "Fire",
+			"type": "D",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Fire Dash",
+			"a1": "Sliding Dash",
+			"a2": "Fira",
+			"type": "C",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Fire Dash",
+			"a1": "Confusion Strike",
+			"a2": "Fire",
+			"type": "D",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Dark Haze",
+			"a1": "Fire Dash",
+			"a2": "Zero Gravira",
+			"type": "D",
+			"chars": ["terra"],
+			"chance": "100"
+		},
+		{
+			"b": "Dark Haze",
+			"a1": "Fire Dash",
+			"a2": "Blackout",
+			"type": "A",
+			"chars": ["terra"],
+			"chance": "100"
+		},
+		{
+			"b": "Dark Haze",
+			"a1": "Fire Surge",
+			"a2": "Zero Gravity",
+			"type": "C",
+			"chars": ["terra"],
+			"chance": "100"
+		},
+		{
+			"b": "Sonic Blade",
+			"a1": "Blitz",
+			"a2": "Dark Haze",
+			"type": "D",
+			"chars": ["terra"],
+			"chance": "90"
+		},
+		{
+			"b": "Sonic Blade",
+			"a1": "Blitz",
+			"a2": "Air Slide",
+			"type": "N",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Sonic Blade",
+			"a1": "Fire Dash",
+			"a2": "Thunder Surge",
+			"type": "K",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Chaos Blade",
+			"a1": "Dark Haze",
+			"a2": "Sonic Blade",
+			"type": "B",
+			"chars": ["terra"],
+			"chance": "90"
+		},
+		{
+			"b": "Zantetsuken",
+			"a1": "Dark Haze",
+			"a2": "Stopga",
+			"type": "B",
+			"chars": ["terra"],
+			"chance": "80"
+		},
+		{
+			"b": "Zantetsuken",
+			"a1": "Sonic Blade",
+			"a2": "Stopga",
+			"type": "F",
+			"chars": ["terra"],
+			"chance": "80"
+		},
+		{
+			"b": "Strike Raid",
+			"a1": "Quick Blitz",
+			"a2": "Sliding Dash",
+			"type": "O",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Freeze Raid",
+			"a1": "Strike Raid",
+			"a2": "Blizzara",
+			"type": "I",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Freeze Raid",
+			"a1": "Blizzard Edge",
+			"a2": "Binding Strike",
+			"type": "K",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Treasure Raid",
+			"a1": "Strike Raid",
+			"a2": "Slot Edge",
+			"type": "O",
+			"chars": ["ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Treasure Raid",
+			"a1": "Slot Edge",
+			"a2": "Magnet",
+			"type": "D",
+			"chars": ["ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Treasure Raid",
+			"a1": "Slot Edge",
+			"a2": "Magnera",
+			"type": "K",
+			"chars": ["ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Spark Raid",
+			"a1": "Freeze Raid",
+			"a2": "Magnega",
+			"type": "J",
+			"chars": ["ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Spark Raid",
+			"a1": "Treasure Raid",
+			"a2": "Magnega",
+			"type": "N",
+			"chars": ["ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Spark Raid",
+			"a1": "Thunder Surge",
+			"a2": "Dodge Roll",
+			"type": "P",
+			"chars": ["ventus"],
+			"chance": "20"
+		},
+		{
+			"b": "Spark Raid",
+			"a1": "Thundaga",
+			"a2": "Dodge Roll",
+			"type": "L",
+			"chars": ["ventus"],
+			"chance": "20"
+		},
+		{
+			"b": "Spark Raid",
+			"a1": "Dodge Roll",
+			"a2": "Stun Block",
+			"type": "L",
+			"chars": ["ventus"],
+			"chance": "20"
+		},
+		{
+			"b": "Wind Raid",
+			"a1": "Freeze Raid",
+			"a2": "Aeroga",
+			"type": "B",
+			"chars": ["ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Wind Raid",
+			"a1": "Treasure Raid",
+			"a2": "Aeroga",
+			"type": "F",
+			"chars": ["ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Fire Surge",
+			"a1": "Fire Dash",
+			"a2": "Ignite",
+			"type": "D",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Fire Surge",
+			"a1": "Fire Strike",
+			"a2": "Fira",
+			"type": "A",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Fire Surge",
+			"a1": "Confusion Strike",
+			"a2": "Fira",
+			"type": "O",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Fire Surge",
+			"a1": "Binding Strike",
+			"a2": "Fira",
+			"type": "K",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Barrier Surge",
+			"a1": "Fire Dash",
+			"a2": "Barrier",
+			"type": "D",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Barrier Surge",
+			"a1": "Stun Edge",
+			"a2": "Barrier",
+			"type": "K",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Thunder Surge",
+			"a1": "Fire Dash",
+			"a2": "Thundara",
+			"type": "D",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Thunder Surge",
+			"a1": "Freeze Raid",
+			"a2": "Thundara",
+			"type": "G",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Thunder Surge",
+			"a1": "Stun Edge",
+			"a2": "Thundara",
+			"type": "I",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Thunder Surge",
+			"a1": "Confusion Strike",
+			"a2": "Thundara",
+			"type": "I",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "95"
+		},
+		{
+			"b": "Aerial Slam",
+			"a1": "Fire Dash",
+			"a2": "High Jump",
+			"type": "A",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Aerial Slam",
+			"a1": "Fire Surge",
+			"a2": "Aero",
+			"type": "D",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Aerial Slam",
+			"a1": "Fire Strike",
+			"a2": "Aerora",
+			"type": "C",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Ars Solum",
+			"a1": "Dark Haze",
+			"a2": "Sonic Blade",
+			"type": "B",
+			"chars": ["terra"],
+			"chance": "20"
+		},
+		{
+			"b": "Ars Solum",
+			"a1": "Dark Haze",
+			"a2": "Stopga",
+			"type": "B",
+			"chars": ["terra"],
+			"chance": "20"
+		},
+		{
+			"b": "Ars Solum",
+			"a1": "Sonic Blade",
+			"a2": "Stopga",
+			"type": "F",
+			"chars": ["terra"],
+			"chance": "20"
+		},
+		{
+			"b": "Ars Solum",
+			"a1": "Sliding Dash",
+			"a2": "Thunder",
+			"type": "K",
+			"chars": ["terra"],
+			"chance": "5"
+		},
+		{
+			"b": "Ars Solum",
+			"a1": "Strike Raid",
+			"a2": "Thunder",
+			"type": "L",
+			"chars": ["terra"],
+			"chance": "5"
+		},
+		{
+			"b": "Ars Solum",
+			"a1": "Strike Raid",
+			"a2": "Thundara",
+			"type": "K",
+			"chars": ["terra"],
+			"chance": "5"
+		},
+		{
+			"b": "Ars Solum",
+			"a1": "Confusion Strike",
+			"a2": "Thundara",
+			"type": "I",
+			"chars": ["terra"],
+			"chance": "5"
+		},
+		{
+			"b": "Ars Arcanum",
+			"a1": "Blitz",
+			"a2": "Aerial Slam",
+			"type": "F",
+			"chars": ["ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Ars Arcanum",
+			"a1": "Quick Blitz",
+			"a2": "Slot Edge",
+			"type": "O",
+			"chars": ["ventus"],
+			"chance": "10"
+		},
+		{
+			"b": "Ars Arcanum",
+			"a1": "Fire Strike",
+			"a2": "Aerora",
+			"type": "C",
+			"chars": ["ventus"],
+			"chance": "10"
+		},
+		{
+			"b": "Ars Arcanum",
+			"a1": "Quick Blitz",
+			"a2": "Blizzard",
+			"type": "G",
+			"chars": ["ventus"],
+			"chance": "5"
+		},
+		{
+			"b": "Ars Arcanum",
+			"a1": "Quick Blitz",
+			"a2": "Blizzara",
+			"type": "H",
+			"chars": ["ventus"],
+			"chance": "5"
+		},
+		{
+			"b": "Ars Arcanum",
+			"a1": "Sliding Dash",
+			"a2": "Blizzard",
+			"type": "E",
+			"chars": ["ventus"],
+			"chance": "5"
+		},
+		{
+			"b": "Ars Arcanum",
+			"a1": "Sliding Dash",
+			"a2": "Blizzara",
+			"type": "G",
+			"chars": ["ventus"],
+			"chance": "5"
+		},
+		{
+			"b": "Ars Arcanum",
+			"a1": "Poison Edge",
+			"a2": "Cura",
+			"type": "P",
+			"chars": ["ventus"],
+			"chance": "5"
+		},
+		{
+			"b": "Ars Arcanum",
+			"a1": "Blizzard Edge",
+			"a2": "Cura",
+			"type": "G",
+			"chars": ["ventus"],
+			"chance": "5"
+		},
+		{
+			"b": "Time Splicer",
+			"a1": "Aerial Slam",
+			"a2": "Stopga",
+			"type": "F",
+			"chars": ["ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Time Splicer",
+			"a1": "Stopga",
+			"a2": "Barrier",
+			"type": "C",
+			"chars": ["aqua"],
+			"chance": "20"
+		},
+		{
+			"b": "Time Splicer",
+			"a1": "Barrier Surge",
+			"a2": "Wishing Edge",
+			"type": "P",
+			"chars": ["aqua"],
+			"chance": "10"
+		},
+		{
+			"b": "Time Splicer",
+			"a1": "Stun Edge",
+			"a2": "Slot Edge",
+			"type": "K",
+			"chars": ["ventus", "aqua"],
+			"chance": "10"
+		},
+		{
+			"b": "Poison Edge",
+			"a1": "Quick Blitz",
+			"a2": "Poison",
+			"type": "O",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "95"
+		},
+		{
+			"b": "Poison Edge",
+			"a1": "Sliding Dash",
+			"a2": "Poison",
+			"type": "K",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "95"
+		},
+		{
+			"b": "Poison Edge",
+			"a1": "Strike Raid",
+			"a2": "Poison",
+			"type": "D",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "95"
+		},
+		{
+			"b": "Wishing Edge",
+			"a1": "Strike Raid",
+			"a2": "Barrier Surge",
+			"type": "O",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Wishing Edge",
+			"a1": "Barrier Surge",
+			"a2": "Stun Edge",
+			"type": "K",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Wishing Edge",
+			"a1": "Stun Edge",
+			"a2": "Binding Strike",
+			"type": "J",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Blizzard Edge",
+			"a1": "Quick Blitz",
+			"a2": "Blizzard",
+			"type": "G",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "95"
+		},
+		{
+			"b": "Blizzard Edge",
+			"a1": "Quick Blitz",
+			"a2": "Blizzara",
+			"type": "H",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "95"
+		},
+		{
+			"b": "Blizzard Edge",
+			"a1": "Sliding Dash",
+			"a2": "Blizzard",
+			"type": "E",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "95"
+		},
+		{
+			"b": "Blizzard Edge",
+			"a1": "Sliding Dash",
+			"a2": "Blizzara",
+			"type": "G",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "95"
+		},
+		{
+			"b": "Stun Edge",
+			"a1": "Sliding Dash",
+			"a2": "Thunder",
+			"type": "K",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "95"
+		},
+		{
+			"b": "Stun Edge",
+			"a1": "Strike Raid",
+			"a2": "Thunder",
+			"type": "L",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "95"
+		},
+		{
+			"b": "Stun Edge",
+			"a1": "Strike Raid",
+			"a2": "Thundara",
+			"type": "K",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "95"
+		},
+		{
+			"b": "Slot Edge",
+			"a1": "Wishing Edge",
+			"a2": "Cure",
+			"type": "O",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Slot Edge",
+			"a1": "Poison Edge",
+			"a2": "Cura",
+			"type": "P",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "95"
+		},
+		{
+			"b": "Slot Edge",
+			"a1": "Blizzard Edge",
+			"a2": "Cura",
+			"type": "G",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "95"
+		},
+		{
+			"b": "Slot Edge",
+			"a1": "Curaga",
+			"a2": "Renewal Block",
+			"type": "N",
+			"chars": ["terra", "ventus"],
+			"chance": "90"
+		},
+		{
+			"b": "Slot Edge",
+			"a1": "Curaga",
+			"a2": "Focus Block",
+			"type": "P",
+			"chars": ["terra", "ventus"],
+			"chance": "90"
+		},
+		{
+			"b": "Slot Edge",
+			"a1": "Curaga",
+			"a2": "Renewal Barrier",
+			"type": "N",
+			"chars": ["aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Slot Edge",
+			"a1": "Curaga",
+			"a2": "Focus Barrier",
+			"type": "P",
+			"chars": ["aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Fire Strike",
+			"a1": "Poison Edge",
+			"a2": "Fira",
+			"type": "D",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Fire Strike",
+			"a1": "Wishing Edge",
+			"a2": "Ignite",
+			"type": "A",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Fire Strike",
+			"a1": "Stun Edge",
+			"a2": "Fire",
+			"type": "K",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Confusion Strike",
+			"a1": "Quick Blitz",
+			"a2": "Confuse",
+			"type": "O",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Confusion Strike",
+			"a1": "Sliding Dash",
+			"a2": "Zero Gravity",
+			"type": "K",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Confusion Strike",
+			"a1": "Strike Raid",
+			"a2": "Confuse",
+			"type": "G",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Binding Strike",
+			"a1": "Quick Blitz",
+			"a2": "Bind",
+			"type": "K",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Binding Strike",
+			"a1": "Strike Raid",
+			"a2": "Bind",
+			"type": "O",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Binding Strike",
+			"a1": "Stun Edge",
+			"a2": "Zero Gravity",
+			"type": "I",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Brutal Blast",
+			"a1": "Stun Edge",
+			"a2": "Mine Shield",
+			"type": "O",
+			"chars": ["terra"],
+			"chance": "70"
+		},
+		{
+			"b": "Brutal Blast",
+			"a1": "Binding Strike",
+			"a2": "Mine Square",
+			"type": "L",
+			"chars": ["terra"],
+			"chance": "70"
+		},
+		{
+			"b": "Tornado Strike",
+			"a1": "Confusion Strike",
+			"a2": "Aeroga",
+			"type": "G",
+			"chars": ["ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Tornado Strike",
+			"a1": "Binding Strike",
+			"a2": "Aeroga",
+			"type": "F",
+			"chars": ["ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Magnet Spiral",
+			"a1": "Binding Strike",
+			"a2": "Collision Magnet",
+			"type": "K",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Magnet Spiral",
+			"a1": "Binding Strike",
+			"a2": "Magnega",
+			"type": "J",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Magnet Spiral",
+			"a1": "Quick Blitz",
+			"a2": "Magnera",
+			"type": "K",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "20"
+		},
+		{
+			"b": "Magnet Spiral",
+			"a1": "Stun Edge",
+			"a2": "Magnera",
+			"type": "L",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "20"
+		},
+		{
+			"b": "Magnet Spiral",
+			"a1": "Zero Gravira",
+			"a2": "Magnet",
+			"type": "I",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "20"
+		},
+		{
+			"b": "Windcutter",
+			"a1": "Binding Strike",
+			"a2": "Aeroga",
+			"type": "F",
+			"chars": ["terra"],
+			"chance": "100"
+		},
+		{
+			"b": "Windcutter",
+			"a1": "Confusion Strike",
+			"a2": "Aeroga",
+			"type": "G",
+			"chars": ["terra"],
+			"chance": "100"
+		},
+		{
+			"b": "Limit Storm",
+			"a1": "Brutal Blast",
+			"a2": "Confusion Strike",
+			"type": "G",
+			"chars": ["terra"],
+			"chance": "100"
+		},
+		{
+			"b": "Limit Storm",
+			"a1": "Brutal Blast",
+			"a2": "Binding Strike",
+			"type": "D",
+			"chars": ["terra"],
+			"chance": "100"
+		},
+		{
+			"b": "Salvation",
+			"a1": "Wind Raid",
+			"a2": "Curaga",
+			"type": "N",
+			"chars": ["ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Collision Magnet",
+			"a1": "Quick Blitz",
+			"a2": "Magnera",
+			"type": "K",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "80"
+		},
+		{
+			"b": "Collision Magnet",
+			"a1": "Stun Edge",
+			"a2": "Magnera",
+			"type": "L",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "80"
+		},
+		{
+			"b": "Collision Magnet",
+			"a1": "Zero Gravira",
+			"a2": "Magnet",
+			"type": "I",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "80"
+		},
+		{
+			"b": "Geo Impact",
+			"a1": "Brutal Blast",
+			"a2": "Brutal Blast",
+			"type": "N",
+			"chars": ["terra"],
+			"chance": "70"
+		},
+		{
+			"b": "Sacrifice",
+			"a1": "Dark Haze",
+			"a2": "Warp",
+			"type": "B",
+			"chars": ["terra"],
+			"chance": "100"
+		},
+		{
+			"b": "Sacrifice",
+			"a1": "Poison Edge",
+			"a2": "Warp",
+			"type": "D",
+			"chars": ["terra"],
+			"chance": "100"
+		},
+		{
+			"b": "Break Time",
+			"a1": "Curaga",
+			"a2": "Renewal Block",
+			"type": "N",
+			"chars": ["terra", "ventus"],
+			"chance": "10"
+		},
+		{
+			"b": "Break Time",
+			"a1": "Curaga",
+			"a2": "Renewal Barrier",
+			"type": "N",
+			"chars": ["aqua"],
+			"chance": "10"
+		},
+		{
+			"b": "Break Time",
+			"a1": "Curaga",
+			"a2": "Focus Block",
+			"type": "P",
+			"chars": ["terra", "ventus"],
+			"chance": "10"
+		},
+		{
+			"b": "Break Time",
+			"a1": "Curaga",
+			"a2": "Focus Barrier",
+			"type": "P",
+			"chars": ["aqua"],
+			"chance": "10"
+		}
+	]
+}

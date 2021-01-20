@@ -1,0 +1,155 @@
+{
+	"Crystals": [
+		"Shimmering",
+		"Fleeting",
+		"Pulsing",
+		"Wellspring",
+		"Soothing",
+		"Hungry",
+		"Abounding"
+	],
+	"A": [
+		"Fire Boost",
+		"Magic Haste",
+		"Leaf Bracer",
+		"Air Combo Plus",
+		"HP Boost",
+		"HP Prize Plus",
+		"Link Prize Plus"
+	],
+	"B": [
+		"Fire Boost",
+		"Reload Boost",
+		"Finish Boost",
+		"Once More",
+		"Damage Syphon",
+		"HP Prize Plus",
+		"EXP Chance"
+	],
+	"C": [
+		"Fire Screen",
+		"Attack Haste",
+		"Finish Boost",
+		"Combo Plus",
+		"HP Boost",
+		"HP Prize Plus",
+		"Link Prize Plus"
+	],
+	"D": [
+		"Fire Screen",
+		"Attack Haste",
+		"Leaf Bracer",
+		"Combo Plus",
+		"HP Boost",
+		"HP Prize Plus",
+		"Link Prize Plus"
+	],
+	"E": [
+		"Blizzard Boost",
+		"Magic Haste",
+		"Leaf Bracer",
+		"Combo Plus",
+		"Item Boost",
+		"HP Prize Plus",
+		"Lucky Strike"
+	],
+	"F": [
+		"Blizzard Boost",
+		"Reload Boost",
+		"Second Chance",
+		"Air Combo Plus",
+		"Damage Syphon",
+		"HP Prize Plus",
+		"Lucky Strike"
+	],
+	"G": [
+		"Blizzard Screen",
+		"Attack Haste",
+		"Leaf Bracer",
+		"Air Combo Plus",
+		"Item Boost",
+		"HP Prize Plus",
+		"Luck Boost"
+	],
+	"H": [
+		"Blizzard Screen",
+		"Magic Haste",
+		"Combo F Boost",
+		"Air Combo Plus",
+		"Item Boost",
+		"HP Prize Plus",
+		"EXP Walker"
+	],
+	"I": [
+		"Thunder Boost",
+		"Magic Haste",
+		"Combo F Boost",
+		"Air Combo Plus",
+		"HP Boost",
+		"Treasure Magnet",
+		"Link Prize Plus"
+	],
+	"J": [
+		"Thunder Boost",
+		"Reload Boost",
+		"Combo F Boost",
+		"Once More",
+		"Defender",
+		"Treasure Magnet",
+		"EXP Chance"
+	],
+	"K": [
+		"Thunder Screen",
+		"Attack Haste",
+		"Finish Boost",
+		"Combo Plus",
+		"HP Boost",
+		"Treasure Magnet",
+		"Link Prize Plus"
+	],
+	"L": [
+		"Thunder Screen",
+		"Attack Haste",
+		"Finish Boost",
+		"Combo Plus",
+		"HP Boost",
+		"Treasure Magnet",
+		"Lucky Strike"
+	],
+	"M": [
+		"Cure Boost",
+		"Magic Haste",
+		"Combo F Boost",
+		"Combo Plus",
+		"Item Boost",
+		"Treasure Magnet",
+		"Lucky Strike"
+	],
+	"N": [
+		"Cure Boost",
+		"Reload Boost",
+		"Second Chance",
+		"Combo Plus",
+		"Defender",
+		"Treasure Magnet",
+		"Lucky Strike"
+	],
+	"O": [
+		"Dark Screen",
+		"Attack Haste",
+		"Finish Boost",
+		"Air Combo Plus",
+		"Item Boost",
+		"Treasure Magnet",
+		"Lucky Strike"
+	],
+	"P": [
+		"Dark Screen",
+		"Magic Haste",
+		"Combo F Boost",
+		"Air Combo Plus",
+		"Item Boost",
+		"Treasure Magnet",
+		"EXP Walker"
+	]
+}

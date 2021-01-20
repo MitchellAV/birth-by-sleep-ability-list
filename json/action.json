@@ -1,0 +1,236 @@
+{
+	"header": {
+		"b": "Command",
+		"a1": "1st Ingredient",
+		"a2": "2nd Ingredient",
+		"type": "Type",
+		"chars": "Used By",
+		"chance": "%"
+	},
+	"recipes": [
+		{
+			"b": "Homing Slide",
+			"a1": "Sliding Dash",
+			"a2": "Magnera",
+			"type": "P",
+			"chars": ["ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Homing Slide",
+			"a1": "Sliding Dash",
+			"a2": "Air Slide",
+			"type": "C",
+			"chars": ["ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Homing Slide",
+			"a1": "Magnet",
+			"a2": "Air Slide",
+			"type": "L",
+			"chars": ["ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Thunder Roll",
+			"a1": "Thunder Surge",
+			"a2": "Dodge Roll",
+			"type": "P",
+			"chars": ["ventus"],
+			"chance": "80"
+		},
+		{
+			"b": "Thunder Roll",
+			"a1": "Thundaga",
+			"a2": "Dodge Roll",
+			"type": "L",
+			"chars": ["ventus"],
+			"chance": "80"
+		},
+		{
+			"b": "Thunder Roll",
+			"a1": "Stun Block",
+			"a2": "Dodge Roll",
+			"type": "L",
+			"chars": ["ventus"],
+			"chance": "80"
+		},
+		{
+			"b": "Firewheel",
+			"a1": "Firaga",
+			"a2": "Cartwheel",
+			"type": "B",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Firewheel",
+			"a1": "Fission Firaga",
+			"a2": "Cartwheel",
+			"type": "B",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Firewheel",
+			"a1": "Fire Surge",
+			"a2": "Cartwheel",
+			"type": "C",
+			"chars": ["aqua"],
+			"chance": "90"
+		},
+		{
+			"b": "Ice Slide",
+			"a1": "Blizzard Edge",
+			"a2": "Air Slide",
+			"type": "F",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Ice Slide",
+			"a1": "Blizzaga",
+			"a2": "Air Slide",
+			"type": "H",
+			"chars": ["terra", "ventus", "aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Fire Glide",
+			"a1": "Fire Surge",
+			"a2": "Glide",
+			"type": "C",
+			"chars": ["ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Fire Glide",
+			"a1": "Firaga",
+			"a2": "Glide",
+			"type": "B",
+			"chars": ["ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Renewal Block",
+			"a1": "Curaga",
+			"a2": "Block",
+			"type": "P",
+			"chars": ["terra", "ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Renewal Block",
+			"a1": "Esuna",
+			"a2": "Block",
+			"type": "C",
+			"chars": ["terra", "ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Stun Block",
+			"a1": "Stun Edge",
+			"a2": "Block",
+			"type": "L",
+			"chars": ["terra", "ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Stun Block",
+			"a1": "Thundaga",
+			"a2": "Block",
+			"type": "I",
+			"chars": ["terra", "ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Poison Block",
+			"a1": "Poison Edge",
+			"a2": "Block",
+			"type": "H",
+			"chars": ["terra", "ventus"],
+			"chance": "80"
+		},
+		{
+			"b": "Poison Block",
+			"a1": "Poison",
+			"a2": "Block",
+			"type": "P",
+			"chars": ["terra", "ventus"],
+			"chance": "80"
+		},
+		{
+			"b": "Renewal Barrier",
+			"a1": "Curaga",
+			"a2": "Barrier",
+			"type": "P",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Renewal Barrier",
+			"a1": "Esuna",
+			"a2": "Barrier",
+			"type": "N",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Confuse Barrier",
+			"a1": "Confusion Strike",
+			"a2": "Barrier",
+			"type": "C",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Confuse Barrier",
+			"a1": "Confuse",
+			"a2": "Barrier",
+			"type": "L",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Stop Barrier",
+			"a1": "Stopga",
+			"a2": "Barrier",
+			"type": "C",
+			"chars": ["aqua"],
+			"chance": "80"
+		},
+		{
+			"b": "Payback Fang",
+			"a1": "Sliding Dash",
+			"a2": "Counter Hammer",
+			"type": "P",
+			"chars": ["terra"],
+			"chance": "100"
+		},
+		{
+			"b": "Payback Raid",
+			"a1": "Sliding Dash",
+			"a2": "Strike Raid",
+			"type": "P",
+			"chars": ["ventus"],
+			"chance": "100"
+		},
+		{
+			"b": "Payback Surge",
+			"a1": "Sliding Dash",
+			"a2": "Fire Surge",
+			"type": "C",
+			"chars": ["aqua"],
+			"chance": "100"
+		},
+		{
+			"b": "Payback Surge",
+			"a1": "Sliding Dash",
+			"a2": "Thunder Surge",
+			"type": "L",
+			"chars": ["aqua"],
+			"chance": "100"
+		}
+	]
+}
