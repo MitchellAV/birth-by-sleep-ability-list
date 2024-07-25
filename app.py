@@ -14,6 +14,12 @@ def __():
 
 
 @app.cell
+def __(mo):
+    mo.md('# Kingdom Heart: Birth by Sleep - Command Melding Search')
+    return
+
+
+@app.cell
 def __():
     data_folder = "./json"
     outcome_file = 'outcomes.json'
@@ -103,11 +109,6 @@ def __(recipe_dfs):
 
 
 @app.cell
-def __():
-    return
-
-
-@app.cell
 def __(mo):
     input_char = mo.ui.dropdown(options=['terra', 'ventus', 'aqua'], value='terra', label='Select a character:')
     input_char
@@ -124,47 +125,92 @@ def __(mo):
 
 
 @app.cell
-def __(attack_df, input_char, input_command):
+def __(input_char, input_command):
     selected_char = input_char.value
     search_command = input_command.value
 
-    def search_attack_df(df, character:str, command:str):
+    def search_df(df, character:str, command:str):
 
         char_cols = ['terra', 'aqua', 'ventus']
         
         df = df[df[f'{character}'] == True]
-        df = df[df['Command'].str.contains(f'{command}', case=False)]
+        df = df[df['1st Ingredient'].str.contains(f'{command}', case=False) | df['2nd Ingredient'].str.contains(f'{command}', case=False)] 
         
         for char in char_cols:
             df.drop(char, axis=1, inplace=True)
         
         return df
             
-    filtered_attack_df = search_attack_df(attack_df, selected_char, search_command)
-    return (
-        filtered_attack_df,
-        search_attack_df,
-        search_command,
-        selected_char,
-    )
+
+
+    return search_command, search_df, selected_char
 
 
 @app.cell
-def __(selected_char):
-    selected_char
+def __(attack_df, search_command, search_df, selected_char):
+    filtered_attack_df = search_df(attack_df, selected_char, search_command)
+    # filtered_attack_df
+    return filtered_attack_df,
+
+
+@app.cell
+def __(magic_df, search_command, search_df, selected_char):
+    filtered_magic_df = search_df(magic_df, selected_char, search_command)
+    # filtered_magic_df
+    return filtered_magic_df,
+
+
+@app.cell
+def __(search_command, search_df, selected_char, shotlock_df):
+    filtered_shotlock_df = search_df(shotlock_df, selected_char, search_command)
+    # filtered_shotlock_df
+    return filtered_shotlock_df,
+
+
+@app.cell
+def __(action_df, search_command, search_df, selected_char):
+    filtered_action_df = search_df(action_df, selected_char, search_command)
+    # filtered_action_df
+    return filtered_action_df,
+
+
+@app.cell
+def __(
+    filtered_action_df,
+    filtered_attack_df,
+    filtered_magic_df,
+    filtered_shotlock_df,
+    pd,
+):
+    combined_df = pd.concat([filtered_attack_df, filtered_magic_df, filtered_action_df, filtered_shotlock_df])
+
+    unique_types = sorted(combined_df['Type'].unique())
+    unique_types = [x for x in unique_types if x != '-']
+    return combined_df, unique_types
+
+
+@app.cell
+def __(mo):
+    mo.md('## Crystal Melding Outcomes')
     return
 
 
 @app.cell
-def __():
-    def filter_crystals():
-        pass
-    return filter_crystals,
+def __(outcome_df, unique_types):
+    filtered_outcome_df = outcome_df.loc[unique_types]
+    filtered_outcome_df
+    return filtered_outcome_df,
 
 
 @app.cell
-def __(filtered_attack_df):
-    filtered_attack_df
+def __(mo):
+    mo.md('## Crystal Melding Outcomes')
+    return
+
+
+@app.cell
+def __(combined_df):
+    combined_df
     return
 
 
