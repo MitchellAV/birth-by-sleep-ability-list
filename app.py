@@ -15,10 +15,13 @@ def __():
     import matplotlib.pyplot as plt
     from pyvis.network import Network
     from IPython.display import HTML, display
+    from functools import wraps
+    from threading import Timer
     return (
         Any,
         HTML,
         Network,
+        Timer,
         cast,
         display,
         json,
@@ -26,8 +29,26 @@ def __():
         nx,
         pd,
         plt,
+        wraps,
         write_dot,
     )
+
+
+@app.cell
+def __(Timer, wraps):
+
+    def debounce(timeout: float):
+        def decorator(func):
+            @wraps(func)
+            def wrapper(*args, **kwargs):
+                wrapper.func.cancel()
+                wrapper.func = Timer(timeout, func, args, kwargs)
+                wrapper.func.start()
+            
+            wrapper.func = Timer(timeout, lambda: None)
+            return wrapper
+        return decorator
+    return debounce,
 
 
 @app.cell
@@ -142,26 +163,41 @@ def __(mo):
 
 @app.cell
 def __(mo):
-    input_exact_match = mo.ui.checkbox(label='Exact match')
+    input_exact_match = mo.ui.checkbox(label="Exact match")
     input_exact_match
     return input_exact_match,
 
 
 @app.cell
-def __(input_char, input_exact_match, input_ingredient):
-    selected_char = input_char.value
+def __(debounce):
+    @debounce(1)
+    def get_value(element):
+        return element.value
+    return get_value,
+
+
+@app.cell
+def __(input_ingredient):
+    # search_command = get_value(input_ingredient)
     search_command = input_ingredient.value
+    return search_command,
+
+
+@app.cell
+def __(input_char, input_exact_match):
+    selected_char = input_char.value
+
     exact_match = input_exact_match.value
 
     def search_df(df, character: str, command: str):
 
         char_cols = ["terra", "aqua", "ventus"]
 
-        regex_str = ''
+        regex_str = ""
         if exact_match:
-            regex_str = f'^{command}$'
+            regex_str = f"^{command}$"
         else:
-            regex_str = f'{command}'
+            regex_str = f"{command}"
 
         df = df[df[f"{character}"] == True]
         df = df[
@@ -173,7 +209,7 @@ def __(input_char, input_exact_match, input_ingredient):
             df.drop(char, axis=1, inplace=True)
 
         return df
-    return exact_match, search_command, search_df, selected_char
+    return exact_match, search_df, selected_char
 
 
 @app.cell
@@ -232,29 +268,44 @@ def __(combined_df, nx, pd, plt):
         G = nx.DiGraph()
         for index, row in df.iterrows():
             recipe = f'{row["1st Ingredient"]} + {row["2nd Ingredient"]}'
-            G.add_node(row["1st Ingredient"], )
-            G.add_node(row["2nd Ingredient"])
-            G.add_node(row['Command'])
-            G.add_edge(row["1st Ingredient"],recipe)
-            G.add_edge(row["2nd Ingredient"],recipe)
-            G.add_edge(recipe, row['Command'])
+            G.add_node(row["1st Ingredient"], node_type="ingredient")
+            G.add_node(row["2nd Ingredient"], node_type="ingredient")
+            G.add_node(row["Command"], node_type="ingredient")
+            G.add_node(recipe, node_type="recipe")
+            G.add_edge(row["1st Ingredient"], recipe)
+            G.add_edge(row["2nd Ingredient"], recipe)
+            G.add_edge(recipe, row["Command"])
         return G
-
 
     def show_graph():
         G = create_graph_nx(combined_df)
-        
-        pos = nx.spring_layout(G,k=100, iterations=10000)
-        
+
+        pos = nx.spring_layout(G, k=10, iterations=1000)
+
         # Create a Matplotlib figure and axis
-        fig, ax = plt.subplots(figsize=(10,10))
-        
+        fig, ax = plt.subplots(figsize=(8, 8))
+
+        color_map = []
+        for node in G:
+            if G.nodes[node]["node_type"] == "ingredient":
+                color_map.append("blue")
+            elif G.nodes[node]["node_type"] == "recipe":
+                color_map.append("red")
+
         # Draw the graph on the axis
-        nx.draw_networkx(G, with_labels=True, ax=ax, pos=pos, node_size=50, font_size=8)
-        
+        nx.draw_networkx(
+            G,
+            with_labels=True,
+            ax=ax,
+            pos=pos,
+            node_color=color_map,
+            font_color='green',
+            node_size=50,
+            font_size=8,
+        )
+
         # Return the figure
         return fig
-
     return create_graph_nx, show_graph
 
 
@@ -263,11 +314,6 @@ def __(mo, show_graph):
     fig = show_graph()
     mo.mpl.interactive(fig)
     return fig,
-
-
-@app.cell
-def __():
-    return
 
 
 @app.cell
