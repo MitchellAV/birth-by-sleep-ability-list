@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.7.11"
+__generated_with = "0.7.12"
 app = marimo.App(width="full")
 
 
@@ -10,7 +10,24 @@ def __():
     from typing import Any, cast
     import json
     import marimo as mo
-    return Any, cast, json, mo, pd
+    import networkx as nx
+    from networkx.drawing.nx_pydot import write_dot
+    import matplotlib.pyplot as plt
+    from pyvis.network import Network
+    from IPython.display import HTML, display
+    return (
+        Any,
+        HTML,
+        Network,
+        cast,
+        display,
+        json,
+        mo,
+        nx,
+        pd,
+        plt,
+        write_dot,
+    )
 
 
 @app.cell
@@ -145,7 +162,7 @@ def __(input_char, input_exact_match, input_ingredient):
             regex_str = f'^{command}$'
         else:
             regex_str = f'{command}'
-        
+
         df = df[df[f"{character}"] == True]
         df = df[
             df["1st Ingredient"].str.match(regex_str, case=False)
@@ -207,6 +224,50 @@ def __(
     unique_types = sorted(combined_df["Type"].unique())
     unique_types = [x for x in unique_types if x != "-"]
     return combined_df, unique_types
+
+
+@app.cell
+def __(combined_df, nx, pd, plt):
+    def create_graph_nx(df: pd.DataFrame):
+        G = nx.DiGraph()
+        for index, row in df.iterrows():
+            recipe = f'{row["1st Ingredient"]} + {row["2nd Ingredient"]}'
+            G.add_node(row["1st Ingredient"], )
+            G.add_node(row["2nd Ingredient"])
+            G.add_node(row['Command'])
+            G.add_edge(row["1st Ingredient"],recipe)
+            G.add_edge(row["2nd Ingredient"],recipe)
+            G.add_edge(recipe, row['Command'])
+        return G
+
+
+    def show_graph():
+        G = create_graph_nx(combined_df)
+        
+        pos = nx.spring_layout(G,k=100, iterations=10000)
+        
+        # Create a Matplotlib figure and axis
+        fig, ax = plt.subplots(figsize=(10,10))
+        
+        # Draw the graph on the axis
+        nx.draw_networkx(G, with_labels=True, ax=ax, pos=pos, node_size=50, font_size=8)
+        
+        # Return the figure
+        return fig
+
+    return create_graph_nx, show_graph
+
+
+@app.cell
+def __(mo, show_graph):
+    fig = show_graph()
+    mo.mpl.interactive(fig)
+    return fig,
+
+
+@app.cell
+def __():
+    return
 
 
 @app.cell
