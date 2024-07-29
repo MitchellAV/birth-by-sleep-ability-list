@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.7.11"
+__generated_with = "0.7.12"
 app = marimo.App(width="full")
 
 
@@ -34,6 +34,8 @@ def __():
 
 @app.cell
 def __(Timer, wraps):
+    import time
+
     def debounce(timeout: float):
         def decorator(func):
             @wraps(func)
@@ -41,11 +43,20 @@ def __(Timer, wraps):
                 wrapper.func.cancel()
                 wrapper.func = Timer(timeout, func, args, kwargs)
                 wrapper.func.start()
-
             wrapper.func = Timer(timeout, lambda: None)
             return wrapper
         return decorator
-    return debounce,
+
+
+    def simple_debounce(timeout: float):
+        def decorator(func):
+            @wraps(func)
+            def wrapper(*args, **kwargs):
+                time.sleep(timeout)
+            return wrapper
+        return decorator
+        
+    return debounce, simple_debounce, time
 
 
 @app.cell
@@ -153,9 +164,17 @@ def __(mo):
 
 @app.cell
 def __(mo):
-    input_ingredient = mo.ui.text(label="Search Ingredients:")
-    input_ingredient
-    return input_ingredient,
+    input_command = mo.ui.text(label='Search Command:')
+    input_command
+    return input_command,
+
+
+@app.cell
+def __(mo):
+    input_ingredient_1 = mo.ui.text(label="Search Ingredient 1:")
+    input_ingredient_2 = mo.ui.text(label="Search Ingredient 2:")
+    mo.hstack([input_ingredient_1, input_ingredient_2], justify='start')
+    return input_ingredient_1, input_ingredient_2
 
 
 @app.cell
@@ -166,97 +185,109 @@ def __(mo):
 
 
 @app.cell
-def __(debounce):
-    @debounce(1)
-    def get_value(element):
-        return element.value
-    return get_value,
+def __(mo):
+    input_type = mo.ui.dropdown(label='Search Crystal Melding Type:', options=['A', "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P"])
+    input_type
+    return input_type,
 
 
 @app.cell
-def __(input_ingredient):
-    # search_command = get_value(input_ingredient)
-    search_command = input_ingredient.value
-    return search_command,
-
-
-@app.cell
-def __(input_char, input_exact_match):
+def __(
+    input_char,
+    input_command,
+    input_exact_match,
+    input_ingredient_1,
+    input_ingredient_2,
+    input_type,
+):
+    search_ingredient_1 = input_ingredient_1.value
+    search_ingredient_2 = input_ingredient_2.value
+    search_command = input_command.value
+    search_type = input_type.value
     selected_char = input_char.value
-
     exact_match = input_exact_match.value
+    return (
+        exact_match,
+        search_command,
+        search_ingredient_1,
+        search_ingredient_2,
+        search_type,
+        selected_char,
+    )
 
-    def search_df(df, character: str, command: str):
+
+@app.cell
+def __(exact_match, search_command):
+    def search_df(df, character: str, ingredient_1: str, ingredient_2: str, command: str, meld_type: str):
 
         char_cols = ["terra", "aqua", "ventus"]
 
-        regex_str = ""
-        if exact_match:
-            regex_str = f"^{command}$"
-        else:
-            regex_str = f"{command}"
+        def exact_match_text(text: str, is_exact_match: bool):
+            results = ""
+            if is_exact_match:
+                results = f"^{text}$"
+            else:
+                results = f"{text}"
+            return results
+
+        regex_ing_1 = exact_match_text(ingredient_1, exact_match)
+        regex_ing_2 = exact_match_text(ingredient_2, exact_match)
+        regex_command = exact_match_text(command, exact_match)
 
         df = df[df[f"{character}"] == True]
+
+        if search_command:
+            df = df[df["Command"].str.match(regex_command, case=False)]
+
+        
+        
         df = df[
-            df["1st Ingredient"].str.match(regex_str, case=False)
-            | df["2nd Ingredient"].str.match(regex_str, case=False)
+            df["1st Ingredient"].str.match(regex_ing_1, case=False)
+            | df["2nd Ingredient"].str.match(regex_ing_1, case=False)
         ]
 
         for char in char_cols:
             df.drop(char, axis=1, inplace=True)
 
         return df
-    return exact_match, search_df, selected_char
-
-
-@app.cell
-def __(attack_df, search_command, search_df, selected_char):
-    filtered_attack_df = search_df(attack_df, selected_char, search_command)
-    # filtered_attack_df
-    return filtered_attack_df,
-
-
-@app.cell
-def __(magic_df, search_command, search_df, selected_char):
-    filtered_magic_df = search_df(magic_df, selected_char, search_command)
-    # filtered_magic_df
-    return filtered_magic_df,
-
-
-@app.cell
-def __(search_command, search_df, selected_char, shotlock_df):
-    filtered_shotlock_df = search_df(shotlock_df, selected_char, search_command)
-    # filtered_shotlock_df
-    return filtered_shotlock_df,
-
-
-@app.cell
-def __(action_df, search_command, search_df, selected_char):
-    filtered_action_df = search_df(action_df, selected_char, search_command)
-    # filtered_action_df
-    return filtered_action_df,
+    return search_df,
 
 
 @app.cell
 def __(
-    filtered_action_df,
-    filtered_attack_df,
-    filtered_magic_df,
-    filtered_shotlock_df,
+    action_df,
+    attack_df,
+    magic_df,
     pd,
+    search_command,
+    search_df,
+    search_ingredient_1,
+    search_ingredient_2,
+    search_type,
+    selected_char,
+    shotlock_df,
 ):
-    combined_df = pd.concat(
-        [
-            filtered_attack_df,
-            filtered_magic_df,
-            filtered_action_df,
-            filtered_shotlock_df,
-        ]
-    )
+    def search_all_dfs(selected_char:str, search_ingredient_1: str, search_ingredient_2: str, search_command:str, search_type:str):
+        filtered_attack_df = search_df(attack_df, selected_char, search_ingredient_1, search_ingredient_2, search_command, search_type)
+        filtered_magic_df = search_df(magic_df, selected_char, search_ingredient_1, search_ingredient_2, search_command, search_type)
+        filtered_shotlock_df = search_df(shotlock_df, selected_char, search_ingredient_1, search_ingredient_2, search_command, search_type)
+        filtered_action_df = search_df(action_df, selected_char, search_ingredient_1, search_ingredient_2, search_command, search_type)
+        
+        combined_df = pd.concat(
+            [
+                filtered_attack_df,
+                filtered_magic_df,
+                filtered_action_df,
+                filtered_shotlock_df,
+            ]
+        )
+        return combined_df
+
+    combined_df = search_all_dfs(selected_char, search_ingredient_1, search_ingredient_2, search_command, search_type)
 
     unique_types = sorted(combined_df["Type"].unique())
     unique_types = [x for x in unique_types if x != "-"]
-    return combined_df, unique_types
+    return combined_df, search_all_dfs, unique_types
 
 
 @app.cell
@@ -307,10 +338,10 @@ def __(combined_df, nx, pd, plt):
 
 
 @app.cell
-def __(mo, show_graph):
-    fig = show_graph()
-    mo.mpl.interactive(fig)
-    return fig,
+def __():
+    # fig = show_graph()
+    # mo.mpl.interactive(fig)
+    return
 
 
 @app.cell
