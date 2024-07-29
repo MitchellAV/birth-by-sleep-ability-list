@@ -217,7 +217,7 @@ def __(
 
 
 @app.cell
-def __(exact_match, search_command):
+def __(exact_match, pd, search_command, search_type):
     def search_df(df, character: str, ingredient_1: str, ingredient_2: str, command: str, meld_type: str):
 
         char_cols = ["terra", "aqua", "ventus"]
@@ -235,19 +235,43 @@ def __(exact_match, search_command):
         regex_command = exact_match_text(command, exact_match)
 
         df = df[df[f"{character}"] == True]
+        for char in char_cols:
+            df.drop(char, axis=1, inplace=True)
+
+        if search_type:
+            df = df[df["Type"] == search_type]
 
         if search_command:
             df = df[df["Command"].str.match(regex_command, case=False)]
 
-        
-        
-        df = df[
-            df["1st Ingredient"].str.match(regex_ing_1, case=False)
-            | df["2nd Ingredient"].str.match(regex_ing_1, case=False)
-        ]
+        if ingredient_1 and not ingredient_2:
+            df = df[
+                df["1st Ingredient"].str.match(regex_ing_1, case=False)
+                | df["2nd Ingredient"].str.match(regex_ing_1, case=False)
+            ]
 
-        for char in char_cols:
-            df.drop(char, axis=1, inplace=True)
+        if ingredient_2 and not ingredient_1:
+            df = df[
+                df["1st Ingredient"].str.match(regex_ing_2, case=False)
+                | df["2nd Ingredient"].str.match(regex_ing_2, case=False)
+            ]
+        
+
+        if ingredient_1 and ingredient_2:
+            mask_1 = df["1st Ingredient"].str.match(regex_ing_1, case=False)
+            mask_2 = df["2nd Ingredient"].str.match(regex_ing_2, case=False)
+            df_1 = df[(mask_1 & mask_2)]
+
+            mask_3 = df["1st Ingredient"].str.match(regex_ing_2, case=False)
+            mask_4 = df["2nd Ingredient"].str.match(regex_ing_1, case=False)
+
+            df_2 = df[(mask_3 & mask_4)]
+
+            df = pd.concat([df_1, df_2])
+
+            
+                
+
 
         return df
     return search_df,
