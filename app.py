@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.7.12"
+__generated_with = "0.7.11"
 app = marimo.App(width="full")
 
 
@@ -13,14 +13,12 @@ def __():
     import networkx as nx
     from networkx.drawing.nx_pydot import write_dot
     import matplotlib.pyplot as plt
-    from pyvis.network import Network
     from IPython.display import HTML, display
     from functools import wraps
     from threading import Timer
     return (
         Any,
         HTML,
-        Network,
         Timer,
         cast,
         display,
@@ -36,7 +34,6 @@ def __():
 
 @app.cell
 def __(Timer, wraps):
-
     def debounce(timeout: float):
         def decorator(func):
             @wraps(func)
@@ -44,7 +41,7 @@ def __(Timer, wraps):
                 wrapper.func.cancel()
                 wrapper.func = Timer(timeout, func, args, kwargs)
                 wrapper.func.start()
-            
+
             wrapper.func = Timer(timeout, lambda: None)
             return wrapper
         return decorator
