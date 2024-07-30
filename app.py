@@ -36,6 +36,7 @@ def __():
 def __(Timer, wraps):
     import time
 
+
     def debounce(timeout: float):
         def decorator(func):
             @wraps(func)
@@ -43,8 +44,10 @@ def __(Timer, wraps):
                 wrapper.func.cancel()
                 wrapper.func = Timer(timeout, func, args, kwargs)
                 wrapper.func.start()
+
             wrapper.func = Timer(timeout, lambda: None)
             return wrapper
+
         return decorator
 
 
@@ -53,9 +56,10 @@ def __(Timer, wraps):
             @wraps(func)
             def wrapper(*args, **kwargs):
                 time.sleep(timeout)
+
             return wrapper
+
         return decorator
-        
     return debounce, simple_debounce, time
 
 
@@ -86,6 +90,7 @@ def __(cast, data_folder, json, outcome_file, pd):
             loaded_dict = json.load(f)
         return loaded_dict
 
+
     def create_outcomes_df(outcomes_dict: dict[str, str]) -> pd.DataFrame:
         crystals = cast(list[str], outcomes_dict.get("Crystals", []))
         outcomes_dict.pop("Crystals")
@@ -94,6 +99,7 @@ def __(cast, data_folder, json, outcome_file, pd):
         )
         return outcomes_df
 
+
     outcomes_dict: dict[str, str] = load_json(outcome_file)
     outcome_df = create_outcomes_df(outcomes_dict)
     return create_outcomes_df, load_json, outcome_df, outcomes_dict
@@ -101,7 +107,9 @@ def __(cast, data_folder, json, outcome_file, pd):
 
 @app.cell
 def __(Any, data_files, load_json, pd):
-    def create_recipe_df(recipe_list: list[dict[str, str]], columns) -> pd.DataFrame:
+    def create_recipe_df(
+        recipe_list: list[dict[str, str]], columns
+    ) -> pd.DataFrame:
         recipe_df = pd.DataFrame.from_records(recipe_list)
         recipe_df.columns = columns
 
@@ -118,6 +126,7 @@ def __(Any, data_files, load_json, pd):
         recipe_df.drop("Used By", axis=1, inplace=True)
 
         return recipe_df
+
 
     def create_recipe_dfs():
         recipe_dfs: dict[str, pd.DataFrame] = {}
@@ -140,6 +149,7 @@ def __(Any, data_files, load_json, pd):
             recipe_dfs[filename] = recipe_df
         return recipe_dfs
 
+
     recipe_dfs = create_recipe_dfs()
     return create_recipe_df, create_recipe_dfs, recipe_dfs
 
@@ -156,7 +166,9 @@ def __(recipe_dfs):
 @app.cell
 def __(mo):
     input_char = mo.ui.dropdown(
-        options=["terra", "ventus", "aqua"], value="terra", label="Select a character:"
+        options=["terra", "ventus", "aqua"],
+        value="terra",
+        label="Select a character:",
     )
     input_char
     return input_char,
@@ -164,7 +176,7 @@ def __(mo):
 
 @app.cell
 def __(mo):
-    input_command = mo.ui.text(label='Search Command:')
+    input_command = mo.ui.text(label="Search Command:")
     input_command
     return input_command,
 
@@ -173,7 +185,7 @@ def __(mo):
 def __(mo):
     input_ingredient_1 = mo.ui.text(label="Search Ingredient 1:")
     input_ingredient_2 = mo.ui.text(label="Search Ingredient 2:")
-    mo.hstack([input_ingredient_1, input_ingredient_2], justify='start')
+    mo.hstack([input_ingredient_1, input_ingredient_2], justify="start")
     return input_ingredient_1, input_ingredient_2
 
 
@@ -186,7 +198,28 @@ def __(mo):
 
 @app.cell
 def __(mo):
-    input_type = mo.ui.dropdown(label='Search Crystal Melding Type:', options=['A', "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P"])
+    input_type = mo.ui.dropdown(
+        label="Search Crystal Melding Type:",
+        options=[
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "-",
+        ],
+    )
     input_type
     return input_type,
 
@@ -218,8 +251,14 @@ def __(
 
 @app.cell
 def __(exact_match, pd, search_command, search_type):
-    def search_df(df, character: str, ingredient_1: str, ingredient_2: str, command: str, meld_type: str):
-
+    def search_df(
+        df,
+        character: str,
+        ingredient_1: str,
+        ingredient_2: str,
+        command: str,
+        meld_type: str,
+    ):
         char_cols = ["terra", "aqua", "ventus"]
 
         def exact_match_text(text: str, is_exact_match: bool):
@@ -235,8 +274,6 @@ def __(exact_match, pd, search_command, search_type):
         regex_command = exact_match_text(command, exact_match)
 
         df = df[df[f"{character}"] == True]
-        for char in char_cols:
-            df.drop(char, axis=1, inplace=True)
 
         if search_type:
             df = df[df["Type"] == search_type]
@@ -255,7 +292,6 @@ def __(exact_match, pd, search_command, search_type):
                 df["1st Ingredient"].str.match(regex_ing_2, case=False)
                 | df["2nd Ingredient"].str.match(regex_ing_2, case=False)
             ]
-        
 
         if ingredient_1 and ingredient_2:
             mask_1 = df["1st Ingredient"].str.match(regex_ing_1, case=False)
@@ -269,9 +305,8 @@ def __(exact_match, pd, search_command, search_type):
 
             df = pd.concat([df_1, df_2])
 
-            
-                
-
+        for char in char_cols:
+            df = df.drop(char, axis=1)
 
         return df
     return search_df,
@@ -291,23 +326,65 @@ def __(
     selected_char,
     shotlock_df,
 ):
-    def search_all_dfs(selected_char:str, search_ingredient_1: str, search_ingredient_2: str, search_command:str, search_type:str):
-        filtered_attack_df = search_df(attack_df, selected_char, search_ingredient_1, search_ingredient_2, search_command, search_type)
-        filtered_magic_df = search_df(magic_df, selected_char, search_ingredient_1, search_ingredient_2, search_command, search_type)
-        filtered_shotlock_df = search_df(shotlock_df, selected_char, search_ingredient_1, search_ingredient_2, search_command, search_type)
-        filtered_action_df = search_df(action_df, selected_char, search_ingredient_1, search_ingredient_2, search_command, search_type)
-        
+    def search_all_dfs(
+        selected_char: str,
+        search_ingredient_1: str,
+        search_ingredient_2: str,
+        search_command: str,
+        search_type: str,
+    ):
+        filtered_attack_df = search_df(
+            attack_df,
+            selected_char,
+            search_ingredient_1,
+            search_ingredient_2,
+            search_command,
+            search_type,
+        )
+        filtered_magic_df = search_df(
+            magic_df,
+            selected_char,
+            search_ingredient_1,
+            search_ingredient_2,
+            search_command,
+            search_type,
+        )
+        filtered_shotlock_df = search_df(
+            shotlock_df,
+            selected_char,
+            search_ingredient_1,
+            search_ingredient_2,
+            search_command,
+            search_type,
+        )
+        filtered_action_df = search_df(
+            action_df,
+            selected_char,
+            search_ingredient_1,
+            search_ingredient_2,
+            search_command,
+            search_type,
+        )
+
         combined_df = pd.concat(
             [
                 filtered_attack_df,
                 filtered_magic_df,
                 filtered_action_df,
                 filtered_shotlock_df,
-            ]
+            ],
+            ignore_index=True,
         )
         return combined_df
 
-    combined_df = search_all_dfs(selected_char, search_ingredient_1, search_ingredient_2, search_command, search_type)
+
+    combined_df = search_all_dfs(
+        selected_char,
+        search_ingredient_1,
+        search_ingredient_2,
+        search_command,
+        search_type,
+    )
 
     unique_types = sorted(combined_df["Type"].unique())
     unique_types = [x for x in unique_types if x != "-"]
@@ -328,6 +405,7 @@ def __(combined_df, nx, pd, plt):
             G.add_edge(row["2nd Ingredient"], recipe)
             G.add_edge(recipe, row["Command"])
         return G
+
 
     def show_graph():
         G = create_graph_nx(combined_df)
@@ -351,7 +429,7 @@ def __(combined_df, nx, pd, plt):
             ax=ax,
             pos=pos,
             node_color=color_map,
-            font_color='green',
+            font_color="green",
             node_size=50,
             font_size=8,
         )
