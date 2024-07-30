@@ -45,7 +45,7 @@ def __():
 
 @app.cell
 def __(mo):
-    mo.md("""# Kingdom Hearts Birth by Sleep - Command Melding Search""")
+    mo.md("""# Kingdom Hearts Birth by Sleep - Command Melding Outcome Reference""")
     return
 
 
