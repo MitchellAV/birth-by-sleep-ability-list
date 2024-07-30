@@ -1,4 +1,5 @@
 marimo
+marimo-cloud
 pandas
 # networkx
 # matplotlib
