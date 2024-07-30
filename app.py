@@ -6,61 +6,42 @@ app = marimo.App(width="full")
 
 @app.cell
 def __():
-    import pandas as pd
-    from typing import Any, cast
-    import json
     import marimo as mo
-    import networkx as nx
-    from networkx.drawing.nx_pydot import write_dot
-    import matplotlib.pyplot as plt
-    from IPython.display import HTML, display
-    from functools import wraps
-    from threading import Timer
-    return (
-        Any,
-        HTML,
-        Timer,
-        cast,
-        display,
-        json,
-        mo,
-        nx,
-        pd,
-        plt,
-        wraps,
-        write_dot,
-    )
+    import pandas as pd
+    import json
+    from typing import Any, cast
+    return Any, cast, json, mo, pd
 
 
 @app.cell
-def __(Timer, wraps):
-    import time
+def __():
+    # import time
 
 
-    def debounce(timeout: float):
-        def decorator(func):
-            @wraps(func)
-            def wrapper(*args, **kwargs):
-                wrapper.func.cancel()
-                wrapper.func = Timer(timeout, func, args, kwargs)
-                wrapper.func.start()
+    # def debounce(timeout: float):
+    #     def decorator(func):
+    #         @wraps(func)
+    #         def wrapper(*args, **kwargs):
+    #             wrapper.func.cancel()
+    #             wrapper.func = Timer(timeout, func, args, kwargs)
+    #             wrapper.func.start()
 
-            wrapper.func = Timer(timeout, lambda: None)
-            return wrapper
+    #         wrapper.func = Timer(timeout, lambda: None)
+    #         return wrapper
 
-        return decorator
+    #     return decorator
 
 
-    def simple_debounce(timeout: float):
-        def decorator(func):
-            @wraps(func)
-            def wrapper(*args, **kwargs):
-                time.sleep(timeout)
+    # def simple_debounce(timeout: float):
+    #     def decorator(func):
+    #         @wraps(func)
+    #         def wrapper(*args, **kwargs):
+    #             time.sleep(timeout)
 
-            return wrapper
+    #         return wrapper
 
-        return decorator
-    return debounce, simple_debounce, time
+    #     return decorator
+    return
 
 
 @app.cell
@@ -166,9 +147,9 @@ def __(recipe_dfs):
 @app.cell
 def __(mo):
     input_char = mo.ui.dropdown(
-        options=["terra", "ventus", "aqua"],
-        value="terra",
-        label="Select a character:",
+        options={"Terra":"terra", "Ventus":"ventus", "Aqua":"aqua"},
+        value="Terra",
+        label="Select character:",
     )
     input_char
     return input_char,
@@ -392,51 +373,51 @@ def __(
 
 
 @app.cell
-def __(combined_df, nx, pd, plt):
-    def create_graph_nx(df: pd.DataFrame):
-        G = nx.DiGraph()
-        for index, row in df.iterrows():
-            recipe = f'{row["1st Ingredient"]} + {row["2nd Ingredient"]}'
-            G.add_node(row["1st Ingredient"], node_type="ingredient")
-            G.add_node(row["2nd Ingredient"], node_type="ingredient")
-            G.add_node(row["Command"], node_type="ingredient")
-            G.add_node(recipe, node_type="recipe")
-            G.add_edge(row["1st Ingredient"], recipe)
-            G.add_edge(row["2nd Ingredient"], recipe)
-            G.add_edge(recipe, row["Command"])
-        return G
+def __():
+    # def create_graph_nx(df: pd.DataFrame):
+    #     G = nx.DiGraph()
+    #     for index, row in df.iterrows():
+    #         recipe = f'{row["1st Ingredient"]} + {row["2nd Ingredient"]}'
+    #         G.add_node(row["1st Ingredient"], node_type="ingredient")
+    #         G.add_node(row["2nd Ingredient"], node_type="ingredient")
+    #         G.add_node(row["Command"], node_type="ingredient")
+    #         G.add_node(recipe, node_type="recipe")
+    #         G.add_edge(row["1st Ingredient"], recipe)
+    #         G.add_edge(row["2nd Ingredient"], recipe)
+    #         G.add_edge(recipe, row["Command"])
+    #     return G
 
 
-    def show_graph():
-        G = create_graph_nx(combined_df)
+    # def show_graph():
+    #     G = create_graph_nx(combined_df)
 
-        pos = nx.spring_layout(G, k=10, iterations=1000)
+    #     pos = nx.spring_layout(G, k=10, iterations=1000)
 
-        # Create a Matplotlib figure and axis
-        fig, ax = plt.subplots(figsize=(8, 8))
+    #     # Create a Matplotlib figure and axis
+    #     fig, ax = plt.subplots(figsize=(8, 8))
 
-        color_map = []
-        for node in G:
-            if G.nodes[node]["node_type"] == "ingredient":
-                color_map.append("blue")
-            elif G.nodes[node]["node_type"] == "recipe":
-                color_map.append("red")
+    #     color_map = []
+    #     for node in G:
+    #         if G.nodes[node]["node_type"] == "ingredient":
+    #             color_map.append("blue")
+    #         elif G.nodes[node]["node_type"] == "recipe":
+    #             color_map.append("red")
 
-        # Draw the graph on the axis
-        nx.draw_networkx(
-            G,
-            with_labels=True,
-            ax=ax,
-            pos=pos,
-            node_color=color_map,
-            font_color="green",
-            node_size=50,
-            font_size=8,
-        )
+    #     # Draw the graph on the axis
+    #     nx.draw_networkx(
+    #         G,
+    #         with_labels=True,
+    #         ax=ax,
+    #         pos=pos,
+    #         node_color=color_map,
+    #         font_color="green",
+    #         node_size=50,
+    #         font_size=8,
+    #     )
 
-        # Return the figure
-        return fig
-    return create_graph_nx, show_graph
+    #     # Return the figure
+    #     return fig
+    return
 
 
 @app.cell
