@@ -10,6 +10,7 @@ def __():
     import pandas as pd
     import json
     from typing import Any, cast
+
     return Any, cast, json, mo, pd
 
 
@@ -50,7 +51,7 @@ def __(mo):
 
 @app.cell
 def __():
-    data_folder = "./json"
+    data_folder = "./data"
     outcome_file = "outcomes.json"
     data_files = [
         "action.json",
@@ -69,7 +70,6 @@ def __(cast, data_folder, json, outcome_file, pd):
             loaded_dict = json.load(f)
         return loaded_dict
 
-
     def create_outcomes_df(outcomes_dict: dict[str, str]) -> pd.DataFrame:
         crystals = cast(list[str], outcomes_dict.get("Crystals", []))
         outcomes_dict.pop("Crystals")
@@ -78,7 +78,6 @@ def __(cast, data_folder, json, outcome_file, pd):
         )
         return outcomes_df
 
-
     outcomes_dict: dict[str, str] = load_json(outcome_file)
     outcome_df = create_outcomes_df(outcomes_dict)
     return create_outcomes_df, load_json, outcome_df, outcomes_dict
@@ -86,9 +85,7 @@ def __(cast, data_folder, json, outcome_file, pd):
 
 @app.cell
 def __(Any, data_files, load_json, pd):
-    def create_recipe_df(
-        recipe_list: list[dict[str, str]], columns
-    ) -> pd.DataFrame:
+    def create_recipe_df(recipe_list: list[dict[str, str]], columns) -> pd.DataFrame:
         recipe_df = pd.DataFrame.from_records(recipe_list)
         recipe_df.columns = columns
 
@@ -105,7 +102,6 @@ def __(Any, data_files, load_json, pd):
         recipe_df.drop("Used By", axis=1, inplace=True)
 
         return recipe_df
-
 
     def create_recipe_dfs():
         recipe_dfs: dict[str, pd.DataFrame] = {}
@@ -128,7 +124,6 @@ def __(Any, data_files, load_json, pd):
             recipe_dfs[filename] = recipe_df
         return recipe_dfs
 
-
     recipe_dfs = create_recipe_dfs()
     return create_recipe_df, create_recipe_dfs, recipe_dfs
 
@@ -150,14 +145,14 @@ def __(mo):
         label="Select character:",
     )
     input_char
-    return input_char,
+    return (input_char,)
 
 
 @app.cell
 def __(mo):
     input_command = mo.ui.text(label="Search Command:")
     input_command
-    return input_command,
+    return (input_command,)
 
 
 @app.cell
@@ -172,7 +167,7 @@ def __(mo):
 def __(mo):
     input_exact_match = mo.ui.checkbox(label="Exact match")
     input_exact_match
-    return input_exact_match,
+    return (input_exact_match,)
 
 
 @app.cell
@@ -200,7 +195,7 @@ def __(mo):
         ],
     )
     input_type
-    return input_type,
+    return (input_type,)
 
 
 @app.cell
@@ -288,7 +283,8 @@ def __(exact_match, pd, search_command, search_type):
             df = df.drop(char, axis=1)
 
         return df
-    return search_df,
+
+    return (search_df,)
 
 
 @app.cell
@@ -355,7 +351,6 @@ def __(
             ignore_index=True,
         )
         return combined_df
-
 
     combined_df = search_all_dfs(
         selected_char,
@@ -446,7 +441,7 @@ def __(mo):
 def __(outcome_df, unique_types):
     filtered_outcome_df = outcome_df.loc[unique_types]
     filtered_outcome_df
-    return filtered_outcome_df,
+    return (filtered_outcome_df,)
 
 
 if __name__ == "__main__":
