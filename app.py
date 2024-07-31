@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.7.12"
+__generated_with = "0.7.14"
 app = marimo.App(width="full")
 
 
@@ -10,7 +10,6 @@ def __():
     import pandas as pd
     import json
     from typing import Any, cast
-
     return Any, cast, json, mo, pd
 
 
@@ -59,7 +58,27 @@ def __():
         "magic.json",
         "shotlock.json",
     ]
-    return data_files, data_folder, outcome_file
+
+    default_types = [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "-",
+    ]
+    return data_files, data_folder, default_types, outcome_file
 
 
 @app.cell
@@ -138,6 +157,30 @@ def __(recipe_dfs):
 
 
 @app.cell
+def __(default_types, mo):
+    get_command, set_command = mo.state("")
+    get_ingredient_1, set_ingredient_1 = mo.state("")
+    get_ingredient_2, set_ingredient_2 = mo.state("")
+    get_type_list, set_type_list = mo.state(default_types)
+    get_type, set_type = mo.state(None)
+    get_clear, set_clear = mo.state(False)
+    return (
+        get_clear,
+        get_command,
+        get_ingredient_1,
+        get_ingredient_2,
+        get_type,
+        get_type_list,
+        set_clear,
+        set_command,
+        set_ingredient_1,
+        set_ingredient_2,
+        set_type,
+        set_type_list,
+    )
+
+
+@app.cell
 def __(mo):
     input_char = mo.ui.dropdown(
         options={"Terra": "terra", "Ventus": "ventus", "Aqua": "aqua"},
@@ -145,20 +188,66 @@ def __(mo):
         label="Select character:",
     )
     input_char
-    return (input_char,)
+    return input_char,
 
 
 @app.cell
-def __(mo):
-    input_command = mo.ui.text(label="Search Command:")
+def __(
+    Any,
+    default_types,
+    mo,
+    set_clear,
+    set_command,
+    set_ingredient_1,
+    set_ingredient_2,
+    set_type,
+    set_type_list,
+):
+    def handle_clear(input: Any):
+        set_command("")
+        set_ingredient_1("")
+        set_ingredient_2("")
+        set_type_list(default_types)
+        set_type(None)
+        set_clear(True)
+
+    input_clear_button = mo.ui.button(label="Clear", on_click=handle_clear)
+    input_clear_button
+    return handle_clear, input_clear_button
+
+
+@app.cell
+def __(get_clear, get_command, mo, set_command):
+    get_clear()
+
+    input_command = mo.ui.text(
+        label="Search Command:", on_change=set_command, value=get_command()
+    )
     input_command
-    return (input_command,)
+    return input_command,
 
 
 @app.cell
-def __(mo):
-    input_ingredient_1 = mo.ui.text(label="Search Ingredient 1:")
-    input_ingredient_2 = mo.ui.text(label="Search Ingredient 2:")
+def __(
+    get_clear,
+    get_ingredient_1,
+    get_ingredient_2,
+    mo,
+    set_ingredient_1,
+    set_ingredient_2,
+):
+    get_clear()
+
+    input_ingredient_1 = mo.ui.text(
+        label="Search Ingredient 1:",
+        value=get_ingredient_1(),
+        on_change=set_ingredient_1,
+    )
+    input_ingredient_2 = mo.ui.text(
+        label="Search Ingredient 2:",
+        value=get_ingredient_2(),
+        on_change=set_ingredient_2,
+    )
     mo.hstack([input_ingredient_1, input_ingredient_2], justify="start")
     return input_ingredient_1, input_ingredient_2
 
@@ -167,50 +256,37 @@ def __(mo):
 def __(mo):
     input_exact_match = mo.ui.checkbox(label="Exact match")
     input_exact_match
-    return (input_exact_match,)
+    return input_exact_match,
 
 
 @app.cell
-def __(mo):
+def __(get_clear, get_type, get_type_list, mo, set_type):
+    get_clear()
+
     input_type = mo.ui.dropdown(
         label="Search Crystal Melding Type:",
-        options=[
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "L",
-            "M",
-            "N",
-            "O",
-            "P",
-            "-",
-        ],
+        value=get_type(),
+        options=get_type_list(),
+        on_change=set_type,
+        allow_select_none=True
     )
     input_type
-    return (input_type,)
+    return input_type,
 
 
 @app.cell
 def __(
+    get_command,
+    get_ingredient_1,
+    get_ingredient_2,
+    get_type,
     input_char,
-    input_command,
     input_exact_match,
-    input_ingredient_1,
-    input_ingredient_2,
-    input_type,
 ):
-    search_ingredient_1 = input_ingredient_1.value
-    search_ingredient_2 = input_ingredient_2.value
-    search_command = input_command.value
-    search_type = input_type.value
+    search_ingredient_1 = get_ingredient_1()
+    search_ingredient_2 = get_ingredient_2()
+    search_command = get_command()
+    search_type = get_type()
     selected_char = input_char.value
     exact_match = input_exact_match.value
     return (
@@ -224,14 +300,13 @@ def __(
 
 
 @app.cell
-def __(exact_match, pd, search_command, search_type):
+def __(exact_match, pd, search_command):
     def search_df(
         df,
         character: str,
         ingredient_1: str,
         ingredient_2: str,
         command: str,
-        meld_type: str,
     ):
         char_cols = ["terra", "aqua", "ventus"]
 
@@ -248,9 +323,6 @@ def __(exact_match, pd, search_command, search_type):
         regex_command = exact_match_text(command, exact_match)
 
         df = df[df[f"{character}"] == True]
-
-        if search_type:
-            df = df[df["Type"] == search_type]
 
         if search_command:
             df = df[df["Command"].str.match(regex_command, case=False)]
@@ -283,8 +355,7 @@ def __(exact_match, pd, search_command, search_type):
             df = df.drop(char, axis=1)
 
         return df
-
-    return (search_df,)
+    return search_df,
 
 
 @app.cell
@@ -297,7 +368,6 @@ def __(
     search_df,
     search_ingredient_1,
     search_ingredient_2,
-    search_type,
     selected_char,
     shotlock_df,
 ):
@@ -306,7 +376,6 @@ def __(
         search_ingredient_1: str,
         search_ingredient_2: str,
         search_command: str,
-        search_type: str,
     ):
         filtered_attack_df = search_df(
             attack_df,
@@ -314,7 +383,7 @@ def __(
             search_ingredient_1,
             search_ingredient_2,
             search_command,
-            search_type,
+            
         )
         filtered_magic_df = search_df(
             magic_df,
@@ -322,7 +391,7 @@ def __(
             search_ingredient_1,
             search_ingredient_2,
             search_command,
-            search_type,
+            
         )
         filtered_shotlock_df = search_df(
             shotlock_df,
@@ -330,7 +399,7 @@ def __(
             search_ingredient_1,
             search_ingredient_2,
             search_command,
-            search_type,
+            
         )
         filtered_action_df = search_df(
             action_df,
@@ -338,7 +407,7 @@ def __(
             search_ingredient_1,
             search_ingredient_2,
             search_command,
-            search_type,
+            
         )
 
         combined_df = pd.concat(
@@ -350,19 +419,36 @@ def __(
             ],
             ignore_index=True,
         )
+
+        combined_df = combined_df.drop_duplicates(ignore_index=True)
         return combined_df
 
     combined_df = search_all_dfs(
         selected_char,
         search_ingredient_1,
         search_ingredient_2,
-        search_command,
-        search_type,
+        search_command
     )
+    return combined_df, search_all_dfs
 
+
+@app.cell
+def __(pd):
+    def search_meld_type(df:pd.DataFrame, meld_type:str):
+
+        if meld_type:
+            df = df[df["Type"] == meld_type]
+        return df
+    return search_meld_type,
+
+
+@app.cell
+def __(combined_df, search_meld_type, search_type, set_type_list):
     unique_types = sorted(combined_df["Type"].unique())
-    unique_types = [x for x in unique_types if x != "-"]
-    return combined_df, search_all_dfs, unique_types
+    set_type_list(unique_types)
+
+    results_df = search_meld_type(combined_df, search_type)
+    return results_df, unique_types
 
 
 @app.cell
@@ -426,8 +512,8 @@ def __(mo):
 
 
 @app.cell
-def __(combined_df):
-    combined_df
+def __(results_df):
+    results_df
     return
 
 
@@ -438,10 +524,11 @@ def __(mo):
 
 
 @app.cell
-def __(outcome_df, unique_types):
-    filtered_outcome_df = outcome_df.loc[unique_types]
+def __(get_type_list, outcome_df):
+    filter_types = [x for x in get_type_list() if x != "-"]
+    filtered_outcome_df = outcome_df.loc[filter_types]
     filtered_outcome_df
-    return (filtered_outcome_df,)
+    return filter_types, filtered_outcome_df
 
 
 if __name__ == "__main__":
