@@ -268,7 +268,7 @@ def __(get_clear, get_type, get_type_list, mo, set_type):
         value=get_type(),
         options=get_type_list(),
         on_change=set_type,
-        allow_select_none=True
+        allow_select_none=True,
     )
     input_type
     return input_type,
@@ -283,9 +283,9 @@ def __(
     input_char,
     input_exact_match,
 ):
-    search_ingredient_1 = get_ingredient_1()
-    search_ingredient_2 = get_ingredient_2()
-    search_command = get_command()
+    search_ingredient_1 = get_ingredient_1().strip()
+    search_ingredient_2 = get_ingredient_2().strip()
+    search_command = get_command().strip()
     search_type = get_type()
     selected_char = input_char.value
     exact_match = input_exact_match.value
@@ -383,7 +383,6 @@ def __(
             search_ingredient_1,
             search_ingredient_2,
             search_command,
-            
         )
         filtered_magic_df = search_df(
             magic_df,
@@ -391,7 +390,6 @@ def __(
             search_ingredient_1,
             search_ingredient_2,
             search_command,
-            
         )
         filtered_shotlock_df = search_df(
             shotlock_df,
@@ -399,7 +397,6 @@ def __(
             search_ingredient_1,
             search_ingredient_2,
             search_command,
-            
         )
         filtered_action_df = search_df(
             action_df,
@@ -407,7 +404,6 @@ def __(
             search_ingredient_1,
             search_ingredient_2,
             search_command,
-            
         )
 
         combined_df = pd.concat(
@@ -424,17 +420,14 @@ def __(
         return combined_df
 
     combined_df = search_all_dfs(
-        selected_char,
-        search_ingredient_1,
-        search_ingredient_2,
-        search_command
+        selected_char, search_ingredient_1, search_ingredient_2, search_command
     )
     return combined_df, search_all_dfs
 
 
 @app.cell
 def __(pd):
-    def search_meld_type(df:pd.DataFrame, meld_type:str):
+    def search_meld_type(df: pd.DataFrame, meld_type: str):
 
         if meld_type:
             df = df[df["Type"] == meld_type]
