@@ -1,0 +1,7 @@
+.venv/
+.gitignore
+.vscode/
+__pycache__/
+.git/
+mcloud.toml
+README.md
