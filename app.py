@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.7.12"
+__generated_with = "0.7.20"
 app = marimo.App(width="full")
 
 
@@ -17,7 +17,6 @@ def __():
 def __():
     # import time
 
-
     # def debounce(timeout: float):
     #     def decorator(func):
     #         @wraps(func)
@@ -30,7 +29,6 @@ def __():
     #         return wrapper
 
     #     return decorator
-
 
     # def simple_debounce(timeout: float):
     #     def decorator(func):
@@ -71,7 +69,6 @@ def __(cast, data_folder, json, outcome_file, pd):
             loaded_dict = json.load(f)
         return loaded_dict
 
-
     def create_outcomes_df(outcomes_dict: dict[str, str]) -> pd.DataFrame:
         crystals = cast(list[str], outcomes_dict.get("Crystals", []))
         outcomes_dict.pop("Crystals")
@@ -80,7 +77,6 @@ def __(cast, data_folder, json, outcome_file, pd):
         )
         return outcomes_df
 
-
     outcomes_dict: dict[str, str] = load_json(outcome_file)
     outcome_df = create_outcomes_df(outcomes_dict)
     return create_outcomes_df, load_json, outcome_df, outcomes_dict
@@ -88,9 +84,7 @@ def __(cast, data_folder, json, outcome_file, pd):
 
 @app.cell
 def __(Any, data_files, load_json, pd):
-    def create_recipe_df(
-        recipe_list: list[dict[str, str]], columns
-    ) -> pd.DataFrame:
+    def create_recipe_df(recipe_list: list[dict[str, str]], columns) -> pd.DataFrame:
         recipe_df = pd.DataFrame.from_records(recipe_list)
         recipe_df.columns = columns
 
@@ -107,7 +101,6 @@ def __(Any, data_files, load_json, pd):
         recipe_df.drop("Used By", axis=1, inplace=True)
 
         return recipe_df
-
 
     def create_recipe_dfs():
         recipe_dfs: dict[str, pd.DataFrame] = {}
@@ -130,7 +123,6 @@ def __(Any, data_files, load_json, pd):
             recipe_dfs[filename] = recipe_df
         return recipe_dfs
 
-
     recipe_dfs = create_recipe_dfs()
     return create_recipe_df, create_recipe_dfs, recipe_dfs
 
@@ -147,7 +139,7 @@ def __(recipe_dfs):
 @app.cell
 def __(mo):
     input_char = mo.ui.dropdown(
-        options={"Terra":"terra", "Ventus":"ventus", "Aqua":"aqua"},
+        options={"Terra": "terra", "Ventus": "ventus", "Aqua": "aqua"},
         value="Terra",
         label="Select character:",
     )
@@ -286,6 +278,8 @@ def __(exact_match, pd, search_command, search_type):
 
             df = pd.concat([df_1, df_2])
 
+            df = df.drop_duplicates()
+
         for char in char_cols:
             df = df.drop(char, axis=1)
 
@@ -358,7 +352,6 @@ def __(
         )
         return combined_df
 
-
     combined_df = search_all_dfs(
         selected_char,
         search_ingredient_1,
@@ -366,10 +359,40 @@ def __(
         search_command,
         search_type,
     )
+    return combined_df, search_all_dfs
 
+
+@app.cell
+def __():
+    # entire_df = search_all_dfs(selected_char, "", "", "", '')
+
+    # def filter_top_tier(df: pd.DataFrame):
+    #     df = df[
+    #         ~(df["Command"].isin(df["1st Ingredient"]))
+    #         & ~(df["Command"].isin(df["2nd Ingredient"]))
+    #     ]
+    #     return df
+
+    # top_tier_df = filter_top_tier(entire_df)
+    # top_tier_df
+    return
+
+
+@app.cell
+def __(pd):
+    def search_meld_type(df: pd.DataFrame, meld_type: str):
+
+        if meld_type:
+            df = df[df["Type"] == meld_type]
+        return df
+    return search_meld_type,
+
+
+@app.cell
+def __(combined_df):
     unique_types = sorted(combined_df["Type"].unique())
     unique_types = [x for x in unique_types if x != "-"]
-    return combined_df, search_all_dfs, unique_types
+    return unique_types,
 
 
 @app.cell
@@ -386,7 +409,6 @@ def __():
     #         G.add_edge(row["2nd Ingredient"], recipe)
     #         G.add_edge(recipe, row["Command"])
     #     return G
-
 
     # def show_graph():
     #     G = create_graph_nx(combined_df)
