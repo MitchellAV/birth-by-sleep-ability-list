@@ -10,7 +10,6 @@ def __():
     import pandas as pd
     import json
     from typing import Any, cast
-
     return Any, cast, json, mo, pd
 
 
@@ -189,7 +188,7 @@ def __(mo):
         label="Select character:",
     )
     input_char
-    return (input_char,)
+    return input_char,
 
 
 @app.cell
@@ -225,7 +224,7 @@ def __(get_clear, get_command, mo, set_command):
         label="Search Command:", on_change=set_command, value=get_command()
     )
     input_command
-    return (input_command,)
+    return input_command,
 
 
 @app.cell
@@ -257,7 +256,7 @@ def __(
 def __(mo):
     input_exact_match = mo.ui.checkbox(label="Exact match")
     input_exact_match
-    return (input_exact_match,)
+    return input_exact_match,
 
 
 @app.cell
@@ -272,7 +271,7 @@ def __(get_clear, get_type, get_type_list, mo, set_type):
         allow_select_none=True,
     )
     input_type
-    return (input_type,)
+    return input_type,
 
 
 @app.cell
@@ -358,8 +357,7 @@ def __(exact_match, pd, search_command):
             df = df.drop(char, axis=1)
 
         return df
-
-    return (search_df,)
+    return search_df,
 
 
 @app.cell
@@ -452,8 +450,7 @@ def __(pd):
         if meld_type:
             df = df[df["Type"] == meld_type]
         return df
-
-    return (search_meld_type,)
+    return search_meld_type,
 
 
 @app.cell
